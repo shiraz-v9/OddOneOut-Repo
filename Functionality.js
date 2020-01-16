@@ -1,10 +1,10 @@
-<script>
-    
-    // javascript code goes in here
-    
-    
+//ALL CANVAS CODE HERE
+$(document).ready(function(){
 
-</script>
+  $("p").click(function(){
+    $(this).hide();
+  });
 
-</body>
-</html>
+  // $("#game-container").click.
+
+});

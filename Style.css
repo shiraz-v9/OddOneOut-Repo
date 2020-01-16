@@ -1,11 +1,44 @@
 <style id="stylesheet">
 
 
+canvas{
+    width: 100%;
+    text-align:center;
+    /* style="border:1px solid #d3d3d3;" */
+    border-color: black;
+    border-style: dotted;
+}
+
+h1{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
+body{
+  font-family: 'IM Fell Great Primer SC', serif;
+  background-color: #36cf5e;
+}
+
+section {
+  width: 800px;
+  height: 500px;
+  border: 2px solid black;
+  outline: #4CAF50 solid 10px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+}
 
 
-canvas {
-        border: 1px solid black;
-        }
+/* Viewport sizing for Smartphones */
+@media only screen and (max-width: 500px) {
+  /* MOBILES */
+  .size {width: 90%;}
+  .size {height: 600px}
+}
+
 
 </style>
-
