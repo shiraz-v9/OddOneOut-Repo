@@ -84,8 +84,8 @@ section {
   /* MOBILES */
   .navbar{ width: 80%; }
   section {margin-top: 90px;}
-  .size {width: 375px;}
-  .size {height: 650px;}
+  .size {width: 360px;}
+  .size {height: 700px;}
 }
 
 @media only screen and (min-width: 600px) {
