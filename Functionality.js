@@ -12,11 +12,25 @@ $(document).ready(function(){
   var player9 = "";
   var player10 = "";
   var sp = " "; //use this for spacing
+  var GameStart = null;
+  var FOOD = {list: [
+      {name: "greggs"},
+      {name: "tea"},
+      {name: "coffee"},
+      {name: "biscuits"},
+      {name: "Fish&Chips"},
+      {name: "Pasty"},
+      {name: "Meat Pie"},
+      {name: "Bagel"},
+      {name: "Sausage Roll"},
+      {name: "English Breakfast"}]};
+
   //var players = [];
 
   $("#playerForm").hide(); // u can use a class to hide all context!
   $("#welcomeMsg").hide();
-  //GameStart=false;
+  $(".hidden").hide()
+
   // hide & show the navbar in mobile viewport only
   $("#icon").click(function(){
     // $(".navbar").css{"visibility", "visible"};
@@ -29,8 +43,6 @@ $(document).ready(function(){
     $("#p3").hide(2000);
     $("#playbtn").hide();
     $("#playerForm").show("slow");
-    //Boolean(GameStart == true);
-
     $("section").css("background-color", "grey").show("slow");
 
 });
@@ -46,27 +58,36 @@ $(document).ready(function(){
 // });
 
   $("#playerForm").submit(function(event){
-    event.preventDefault(); // will prevent from refreshing the page and lose jquery functions.
+    event.preventDefault(); // will prevent from refreshing the page and lose JS functions.
     player1 = $("#pl1").val();
     player2 = $("#pl2").val();
-    player3 = $("#pl3").val();
+    player3 = $("#pl3").val();//use loop for less code and more players
 
-    $("#checker").html("Here are my players " + player1 +sp+ player2 +sp+ player3);
+    $("#checker").html("Here are my players:<br> "
+    + player1 + "<br>"+ player2 + "<br>" + player3);
+    $("#playerForm").hide("slow");
+    $("#startBtn").show("slow");
 
   });
 
 
+  $("#startBtn").click(function(event){
+    event.preventDefault();
+    $("#checker").html("Hello World");
+    $("#startBtn").hide("slow");
+    //var obj = jQuery.parseJSON( '{ "name": "John" }' );
+    //$("#ITEM").html( FOOD.list[3]).show();
+
+    //DISPLAY PLAYER NAMES FIRST
+    $("#ITEM").show();
+ });
 
 
 
 
-// if (GameStart == true){
-//   console.log( "GameStart is ON!" );//check this in inspect page
-//   $("#welcomeMsg").show();
-//   $("#checker").show();
-//
-//
-// }
+
+
+
 
 
 
