@@ -1,24 +1,39 @@
 //ALL CANVAS CODE HERE
 $(document).ready(function(){
 
-  $("p").click(function(){
-    $(this).hide();
-  });
+  var player1 = "";
+  var player2 = "";
+  var player3 = "";
+  var player4 = "";
+  var player5 = "";
+  var player6 = "";
+  var player7 = "";
+  var player8 = "";
+  var player9 = "";
+  var player10 = "";
 
-  // $("#game-container").click.
-//   $("#playbtn").click(function(){
-//     $("section").css("background-color", "black");
-//
-//
-// });
+
+  $("#players").hide();
+
+  // hide & show the navbar in mobile viewport only
+  $("#icon").click(function(){
+    // $(".navbar").css{"visibility", "visible"};
+    $(".navbar").toggle(500);
+  });
 
   $("#playbtn").click(function(){
     $("#p1").hide(1000);
     $("#p2").hide(1500);
     $("#p3").hide(2000);
     $("#playbtn").hide();
+    $("#players").show("slow");
+    //Boolean(GameStart == true);
+
     // $("section").css("background-color", "white");
 
 });
 
 });
+if (GameStart == true) {
+
+}
