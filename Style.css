@@ -80,7 +80,7 @@ section {
 
 
 /* Viewport sizing for Smartphones */
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 300px) {
   /* MOBILES */
   .navbar{ width: 80%; }
   section {margin-top: 90px;}
