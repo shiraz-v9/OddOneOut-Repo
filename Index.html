@@ -32,14 +32,18 @@
 
     <button id="playbtn" style="bottom:0px;">Start a new Game</button>
 
-      <form action="index.html" id="players" method="GET">
+      <form  id="playerForm" action="">
       <h3>Enter your name here</h3>
-      <p><label>Player 1:</label><input type="text"></p>
-      <p><label>Player 2:</label><input type="text"></p>
-      <p><label>Player 3:</label><input type="text"></p>
-      <p><input type="submit" value="submit"></p>
+      <p><label>Player 1:</label><input id="pl1" type="text"></p>
+      <p><label>Player 2:</label><input id="pl2" type="text"></p>
+      <p><label>Player 3:</label><input id="pl3" type="text"></p>
+      <p><input type="submit" value="submit" id="submitBtn"></p>
     <!-- <a href="#close-modal" rel="modal:close" class="close-modal ">Start</a> -->
     </form>
+
+    <p id="checker"></p>
+
+    <p id= "welcomeMsg"> hello players </p>
     <!-- <canvas id="Canvas" class="size">
     </canvas> -->
     </section>
