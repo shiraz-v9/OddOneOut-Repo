@@ -81,7 +81,10 @@ $(document).ready(function(){
 
   $("#startBtn").click(function(event){
     event.preventDefault();
-    $("#checker").html("Hello World");
+    var x=5;
+    // setInterval(function() {
+    // x--;}
+    $("#checker").html(x);
     $("#startBtn").hide("slow");
     //var obj = jQuery.parseJSON( '{ "name": "John" }' );
     //$("#ITEM").html( FOOD.list[3]).show();
