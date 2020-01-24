@@ -11,8 +11,10 @@ $(document).ready(function(){
   var player8 = "";
   var player9 = "";
   var player10 = "";
-  var sp = " "; //use this for spacing
+  var br = "<br>"; //use this for spacing
   var GameStart = null;
+  var open = false;
+
   var FOOD = {list: [
       {name: "greggs"},
       {name: "tea"},
@@ -62,9 +64,15 @@ $(document).ready(function(){
     player1 = $("#pl1").val();
     player2 = $("#pl2").val();
     player3 = $("#pl3").val();//use loop for less code and more players
-
+    player4 = $("#pl4").val();
+    player5 = $("#pl5").val();
+    player6 = $("#pl6").val();
+    player7 = $("#pl7").val();
+    player8 = $("#pl8").val();
     $("#checker").html("Here are my players:<br> "
-    + player1 + "<br>"+ player2 + "<br>" + player3);
+    + player1 + br + player2 + br + player3 +
+    br + player4 + br + player5 + br +
+    player6 + br + player7 + br + player8);
     $("#playerForm").hide("slow");
     $("#startBtn").show("slow");
 
@@ -84,8 +92,21 @@ $(document).ready(function(){
 
 
 
+ var $toggle = -1;
+ $('#add').click(function(){
+    $toggle += 1;
+     if($toggle == 0){
+         $("#pl4").show();
 
+      }else if ($toggle == 1){$("#pl5").show();
+      }else if ($toggle == 2){$("#pl6").show();
+      }else if ($toggle == 3){$("#pl7").show();
+      }else if ($toggle == 4){$("#pl8").show();
+      // }else if ($toggle == 5){$("#pl9").show();
+      // }else if ($toggle == 6){$("#pl10").show();
+      }
 
+ });
 
 
 

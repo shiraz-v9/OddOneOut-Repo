@@ -41,11 +41,12 @@
   border-bottom: 3px solid red;
 }
 
-h1 h3 title{
+
+h1, h3{
 
 
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
 
 }
 
@@ -55,7 +56,8 @@ p{
 }
 
 body{
-  font-family: 'IM Fell Great Primer SC', serif;
+  /* font-family: 'Frijole', cursive; */
+  font-family: 'Cabin Sketch', cursive;
   background-color: whitesmoke;
 }
 
@@ -78,13 +80,22 @@ section {
   height: 20px;
 }
 
+#add{
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
+}
+
 
 /* Viewport sizing for Smartphones */
 @media only screen and (min-width: 300px) {
   /* MOBILES */
   .navbar{ width: 100%; }
   section {margin-top: 90px;}
-  .size {width: 300px;}
+  .size {width: 330px;}
   .size {height: 700px;}
 }
 
