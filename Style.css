@@ -93,7 +93,7 @@ section {
 /* Viewport sizing for Smartphones */
 @media only screen and (min-width: 300px) {
   /* MOBILES */
-  .navbar{ width: 100%; }
+  .navbar{ width: 65%; margin-top: 10px;}
   section {margin-top: 90px;}
   .size {width: 330px;}
   .size {height: 700px;}
@@ -101,7 +101,7 @@ section {
 
 @media only screen and (min-width: 600px) {
   /* Desktop */
-  #icon{visibility:hidden;;}
+  /* #icon{visibility:hidden;;} */
   .navbar{ width: 40%}
   .size {width: 800px;}
   .size {height: 500px;}

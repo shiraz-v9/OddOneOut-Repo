@@ -15,29 +15,32 @@ $(document).ready(function(){
   var GameStart = null;
   var open = false;
 
-  var FOOD = {list: [
-      {name: "greggs"},
-      {name: "tea"},
-      {name: "coffee"},
-      {name: "biscuits"},
-      {name: "Fish&Chips"},
-      {name: "Pasty"},
-      {name: "Meat Pie"},
-      {name: "Bagel"},
-      {name: "Sausage Roll"},
-      {name: "English Breakfast"}]};
+  var obj = jQuery.parseJSON('{ "name":"greggs", "name":"tea", "name":"coffee"}');
 
-  //var players = [];
+
+  // var FOOD = {list: [
+  //     {name: "greggs"},
+  //     {name: "tea"},
+  //     {name: "coffee"},
+  //     {name: "biscuits"},
+  //     {name: "Fish&Chips"},
+  //     {name: "Pasty"},
+  //     {name: "Meat Pie"},
+  //     {name: "Bagel"},
+  //     {name: "Sausage Roll"},
+  //     {name: "English Breakfast"}]};
+
+
 
   $("#playerForm").hide(); // u can use a class to hide all context!
   $("#welcomeMsg").hide();
   $(".hidden").hide()
 
   // hide & show the navbar in mobile viewport only
-  $("#icon").click(function(){
-    // $(".navbar").css{"visibility", "visible"};
-    $(".navbar").toggle(500);
-  });
+  // $("#icon").click(function(){
+  //   // $(".navbar").css{"visibility", "visible"};
+  //   $(".navbar").toggle(500);
+  // });
 
   $("#playbtn").click(function(){
     $("#p1").hide(1000);
@@ -81,7 +84,7 @@ $(document).ready(function(){
 
   $("#startBtn").click(function(event){
     event.preventDefault();
-    var x=5;
+    var x="Conutndown Here";
     // setInterval(function() {
     // x--;}
     $("#checker").html(x);
@@ -91,6 +94,10 @@ $(document).ready(function(){
 
     //DISPLAY PLAYER NAMES FIRST
     $("#ITEM").show();
+    //var x = ;
+    $("#ITEM").text(obj.name);
+    // var myJSON = JSON.stringify(FOOD);//plain string not needed.
+    // $("#ITEM").text(myJSON);
  });
 
 
@@ -110,6 +117,10 @@ $(document).ready(function(){
       }
 
  });
+
+
+
+
 
 
 
