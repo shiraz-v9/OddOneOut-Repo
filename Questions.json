@@ -1,0 +1,23 @@
+{
+"foodquestions":[
+  {"Would you eat this food cold?"},
+  {"Would you give this food to your dog?"},
+  {"What meal would you have this food on?"},
+  {"Would you eat this if it sat out on the counter for a week?"},
+  {"Could you make it through the week only eating this?"}
+]
+"locationquestions":[
+  {"Would you go here on holiday?"},
+  {"Would it be expensive to go here?"},
+  {"Would you enjoy going here?"},
+  {"?"},
+  {"?"}
+]
+"generalquestions":[
+  {"?"},
+  {"?"},
+  {"?"},
+  {"?"},
+  {"?"}
+]
+}
