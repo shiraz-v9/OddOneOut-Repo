@@ -35,8 +35,11 @@ $(document).ready(function(){
   // {name: "Manchester"},
   // {name: "Big Ben"},
   // {name: "London Eye"},
-  //
-  //]	}
+  // {name: "York"},
+  // {name: "Stonehenge"},
+  // {name: "Tower of London"},
+  // {name: "Chester Zoo"},
+  // {name: "Blackpool"}]};
 
 
   $("#playerForm").hide(); // u can use a class to hide all context!
