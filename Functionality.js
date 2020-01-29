@@ -29,7 +29,14 @@ $(document).ready(function(){
   //     {name: "Bagel"},
   //     {name: "Sausage Roll"},
   //     {name: "English Breakfast"}]};
-
+  
+  // var LOCATIONS = {list: [
+  // {name: "London"},
+  // {name: "Manchester"},
+  // {name: "Big Ben"},
+  // {name: "London Eye"},
+  //
+  //]	}
 
 
   $("#playerForm").hide(); // u can use a class to hide all context!
