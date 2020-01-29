@@ -4,7 +4,10 @@
   {"Would you give this food to your dog?"},
   {"What meal would you have this food on?"},
   {"Would you eat this if it sat out on the counter for a week?"},
-  {"Could you make it through the week only eating this?"}
+  {"Could you make it through the week only eating this?"},
+  {"State what you like about this food"}
+  {"How much would you pay for this food?"}
+  {""}
 ]
 "locationquestions":[
   {"Would you go here on holiday?"},
