@@ -43,9 +43,9 @@ $(document).ready(function(){
   // });
 
   $("#playbtn").click(function(){
-    $("#p1").hide(1000);
-    $("#p2").hide(1500);
-    $("#p3").hide(2000);
+    $("#p1").hide();
+    $("#p2").hide();
+    $("#p3").hide();
     $("#playbtn").hide();
     $("#playerForm").show("slow");
     $("section").css("background-color", "grey").show("slow");
