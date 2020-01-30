@@ -99,13 +99,12 @@ $(document).ready(function(){
     event.preventDefault(); // will prevent from refreshing the page and lose JS functions.
     player1 = $("#pl1").val();
     player2 = $("#pl2").val();
-    player3 = $("#pl3").val();//use for loop and arraylist of players for less code and more players
+    player3 = $("#pl3").val();//use loop for less code and more players
     player4 = $("#pl4").val();
     player5 = $("#pl5").val();
     player6 = $("#pl6").val();
     player7 = $("#pl7").val();
     player8 = $("#pl8").val();
-<<<<<<< HEAD
 
     //LOOP
     players.push("Kiwi", "Lemon", "Pineapple");
@@ -123,24 +122,10 @@ $(document).ready(function(){
 
 
 
-=======
-    $("#checker").html("Here are my players:<br> "
-    + player1 + br + player2 + br + player3 +
-    br + player4 + br + player5 + br +
-    player6 + br + player7 + br + player8);
-    
->>>>>>> d6eb7bb3a37767c571b6bb7de5a1423339136eca
     $("#playerForm").hide("slow");
     $("#startBtn").show("slow");
 
   });
-  
-  $("votingForm").submit(function(event){
-    event.preventDefault();
-    
-  });
-  
-  
 
 
   $("#startBtn").click(function(event){
@@ -168,8 +153,6 @@ $(document).ready(function(){
     // var myJSON = JSON.stringify(FOOD);//plain string not needed.
     // $("#ITEM").text(myJSON);
  });
-  
-  
 
 
 
