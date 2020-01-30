@@ -1,6 +1,6 @@
 //ALL CANVAS CODE HERE
 $(document).ready(function(){
-
+  var sp = " ";
   var player1 = "";
   var player2 = "";
   var player3 = "";
@@ -9,13 +9,44 @@ $(document).ready(function(){
   var player6 = "";
   var player7 = "";
   var player8 = "";
-  var player9 = "";
-  var player10 = "";
+
+  players = [];
+  // var player9 = "";
+  // var player10 = "";
   var br = "<br>"; //use this for spacing
   var GameStart = null;
   var open = false;
 
-  var obj = jQuery.parseJSON('{ "name":"greggs", "name":"tea", "name":"coffee"}');
+  var JSON = jQuery.parseJSON('{"Food": ["greggs", "tea", "coffee"]}');
+
+  // {"Food":[
+  //
+  // {"one" : "Would you eat this food cold?"},
+  // {"two":"What meal would you have this food on?"},
+  // {"three":"Would you eat this if it sat out on the counter for a week?"},
+  // {"four":"Would you eat this if it sat out on the counter for a week?"},
+  // {"five":"Would you eat this if it sat out on the counter for a week?"},
+  // {"six":"Would you eat this if it sat out on the counter for a week?"},
+  // {"seven":"Would you eat this if it sat out on the counter for a week?"},
+  // {"eight":"Would you eat this if it sat out on the counter for a week?"},
+  // {"nine":"Would you eat this if it sat out on the counter for a week?"}
+  // ]
+  // }
+  //
+  // "greggs":[
+  //   {},
+  //   {"Would you give this food to your dog?"},
+  //   {"What meal would you have this food on?"},
+  //   {"Would you eat this if it sat out on the counter for a week?"},
+  //   {"Could you make it through the week only eating this?"},
+  //   {"Say what you like about this item?"},
+  //   {"How much would you pay for this food?"},
+  //   {"Where would you buy this from?"},
+  //   {"What would you have this with?"},
+  //   {"Say what you dislike about this item?"}
+  // ]
+
+
 
 
   // var FOOD = {list: [
@@ -29,7 +60,7 @@ $(document).ready(function(){
   //     {name: "Bagel"},
   //     {name: "Sausage Roll"},
   //     {name: "English Breakfast"}]};
-  
+
   // var LOCATIONS = {list: [
   // {name: "London"},
   // {name: "Manchester"},
@@ -62,15 +93,7 @@ $(document).ready(function(){
 
 });
 
-// $('#submitBtn').click(function() {
-//     // var players = $('#playerForm').serializeArray();
-//     // for(i in players){
-//     //     console.log(players[i]);
-//         $("#checker").text($("#playerForm").serialize());
-//     //}
-//     return false;
-//     $(GameStart == true);
-// });
+
 
   $("#playerForm").submit(function(event){
     event.preventDefault(); // will prevent from refreshing the page and lose JS functions.
@@ -82,10 +105,23 @@ $(document).ready(function(){
     player6 = $("#pl6").val();
     player7 = $("#pl7").val();
     player8 = $("#pl8").val();
-    $("#checker").html("Here are my players:<br> "
-    + player1 + br + player2 + br + player3 +
-    br + player4 + br + player5 + br +
-    player6 + br + player7 + br + player8);
+
+    //LOOP
+    players.push("Kiwi", "Lemon", "Pineapple");
+    // $("#checker").html("Here are my players:<br> "
+    // + player1 + br + player2 + br + player3 +
+    // br + player4 + br + player5 + br +
+    // player6 + br + player7 + br + player8);
+
+    for(var i=0; i<8; i++){
+
+
+    $("#checker").html(players[i]);
+    }
+
+
+
+
     $("#playerForm").hide("slow");
     $("#startBtn").show("slow");
 
@@ -94,18 +130,26 @@ $(document).ready(function(){
 
   $("#startBtn").click(function(event){
     event.preventDefault();
-    var x="Conutndown Here";
-    // setInterval(function() {
-    // x--;}
-    $("#checker").html(x);
     $("#startBtn").hide("slow");
-    //var obj = jQuery.parseJSON( '{ "name": "John" }' );
-    //$("#ITEM").html( FOOD.list[3]).show();
+    var x="Display active player name here " + activePlayers;
+    $("#checker").html(x);
+
+    var activePlayers = 0;
+    var i;
+    for (i = 1; i < 8; i++){
+    if (players[i] != ""){
+        activePlayers += 1;
+
+      }
+    }
+
+
 
     //DISPLAY PLAYER NAMES FIRST
     $("#ITEM").show();
-    //var x = ;
-    $("#ITEM").text(obj.name);
+    var rnd = Math.floor(Math.random() * 3);
+    $("#ITEM").text(JSON.Food[rnd]); // USE RAND
+    $("#loadJson").show();
     // var myJSON = JSON.stringify(FOOD);//plain string not needed.
     // $("#ITEM").text(myJSON);
  });
@@ -128,7 +172,11 @@ $(document).ready(function(){
 
  });
 
-
+ $("#loadJson").click(function(event){
+                $.getJSON('foodQuestions.json', function() {
+                   $('#json').html( greggs + sp + tea+ sp + coffee);
+                });
+             });
 
 
 
