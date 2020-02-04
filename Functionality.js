@@ -107,17 +107,29 @@ $(document).ready(function(){
     player8 = $("#pl8").val();
 
     //LOOP
-    players.push("Kiwi", "Lemon", "Pineapple");
+    //players.push("Kiwi", "Lemon", "Pineapple");
+    
+    //Pushing players without loop for now
+    players.push(player1);
+    players.push(player2);
+    players.push(player3);
+    players.push(player4);
+    players.push(player5);
+    players.push(player6);
+    players.push(player7);
+    players.push(player8);
+    
+    
     // $("#checker").html("Here are my players:<br> "
     // + player1 + br + player2 + br + player3 +
     // br + player4 + br + player5 + br +
     // player6 + br + player7 + br + player8);
 
-    for(var i=0; i<8; i++){
+      for(var i=0; i<8; i++){
 
 
-    $("#checker").html(players[i]);
-    }
+      $("#checker").html(players[i]);
+      }
 
 
 
@@ -177,7 +189,16 @@ $(document).ready(function(){
                    $('#json').html( greggs + sp + tea+ sp + coffee);
                 });
              });
+  
+  
+  
+  
 
+  $("#votingForm").submit(function(event){
+   
+    
+     $("#votingForm").hide("slow");
+  }
 
 
 
