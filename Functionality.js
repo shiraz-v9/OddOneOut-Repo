@@ -91,7 +91,7 @@ $(document).ready(function(){
     $("#playerForm").show("slow");
     $("section").css("background-color", "grey").show("slow");
 
-});
+  });
 
 
 
@@ -99,38 +99,17 @@ $(document).ready(function(){
     event.preventDefault(); // will prevent from refreshing the page and lose JS functions.
     player1 = $("#pl1").val();
     player2 = $("#pl2").val();
-    player3 = $("#pl3").val();//use loop for less code and more players
+    player3 = $("#pl3").val();
     player4 = $("#pl4").val();
     player5 = $("#pl5").val();
     player6 = $("#pl6").val();
     player7 = $("#pl7").val();
     player8 = $("#pl8").val();
 
-    //LOOP
-    //for(var i=1; i<8; i++){
-    // if(player1 != ""){
-    //   players.push(player1);
-       players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
-    // }else if (player2 != "") {
-    //   players.push(player2);
-    // }else if (player3 != "") {
-    //   players.push(player3);
-    // }else if (player4 != "") {
-    //   players.push(player4);
-    // }else if (player5 != "") {
-    //   players.push(player5);
-    // }else if (player6 != "") {
-    //   players.push(player6);
-    // }else if (player7 != "") {
-    //   players.push(player7);
-    // }else if (player8 != "") {
-    //   players.push(player8);
-    // }
 
+    players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
 
-    //}
-
-    
+    //REMOVE EMPTY VALUES FROM players
     var len = players.length, i;
 
     for(i = 0; i < len; i++ )
@@ -138,16 +117,11 @@ $(document).ready(function(){
 
     players.splice(0 , len);  // cut the array and leave only the non-empty values
 
-
-
     //Display my players name on screen
-    //$("#checker").html(players[0] +br+ players[1] +br+ players[2] +br+ players[3] +br+ players[4] +br+ players[5] +br+ players[6] +br+ players[7]);
-    $("#checker").html(players);
-
-
-
+    $("#checker").html(players.join(br));
 
     $("#playerForm").hide("slow");
+
     $("#startBtn").show("slow");
 
   });
@@ -197,14 +171,11 @@ $(document).ready(function(){
 
  });
 
- $("#loadJson").click(function(event){
-                $.getJSON('foodQuestions.json', function() {
-                   $('#json').html( greggs + sp + tea+ sp + coffee);
-                });
-             });
-
-
-
+  // $("#loadJson").click(function(event){
+  //                $.getJSON('foodQuestions.json', function() {
+  //                   $('#json').html( greggs + sp + tea+ sp + coffee);
+  //                });
+  //             });
 
 
   // $("#votingForm").submit(function(event){
@@ -212,10 +183,6 @@ $(document).ready(function(){
   //
   //    $("#votingForm").hide("slow");
   //  });
-
-
-
-
 
 
 });
