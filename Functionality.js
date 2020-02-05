@@ -107,7 +107,6 @@ $(document).ready(function(){
     player8 = $("#pl8").val();
 
     //LOOP
-<<<<<<< HEAD
     // for(var i=1; i<8; i++){
     //if(val() != ""){
       players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
