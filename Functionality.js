@@ -129,7 +129,7 @@ $(document).ready(function(){
 
 
     //}
-=======
+
     //players.push("Kiwi", "Lemon", "Pineapple");
     
     //Pushing players without loop for now
@@ -143,25 +143,24 @@ $(document).ready(function(){
     players.push(player8);
     
     
->>>>>>> 9f22406cf0a65c5b6f4082901bfad3155ed99291
+
     // $("#checker").html("Here are my players:<br> "
     // + player1 + br + player2 + br + player3 +
     // br + player4 + br + player5 + br +
     // player6 + br + player7 + br + player8);
 
-<<<<<<< HEAD
+
     // for(var i=0; i<8; i++){
 
 
     $("#checker").html(players[0] +sp+ players[1] +sp+ players[2]);
 
-=======
       for(var i=0; i<8; i++){
 
 
       $("#checker").html(players[i]);
       }
->>>>>>> 9f22406cf0a65c5b6f4082901bfad3155ed99291
+
 
 
 
