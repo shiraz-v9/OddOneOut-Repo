@@ -1,23 +1,23 @@
 //ALL CANVAS CODE HERE
 $(document).ready(function(){
   var sp = " ";
-  var player1 = "";
-  var player2 = "";
-  var player3 = "";
-  var player4 = "";
-  var player5 = "";
-  var player6 = "";
-  var player7 = "";
-  var player8 = "";
+  var player1
+  var player2
+  var player3
+  var player4
+  var player5
+  var player6
+  var player7
+  var player8 
 
-  players = [];
+  var players = [];
+  var activePlayers = players.length;
   // var player9 = "";
   // var player10 = "";
   var br = "<br>"; //use this for spacing
   var GameStart = null;
-  var open = false;
 
-  var JSON = jQuery.parseJSON('{"Food": ["greggs", "tea", "coffee"]}');
+  var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
 
   // {"Food":[
   //
@@ -107,17 +107,37 @@ $(document).ready(function(){
     player8 = $("#pl8").val();
 
     //LOOP
-    players.push("Kiwi", "Lemon", "Pineapple");
+    // for(var i=1; i<8; i++){
+    //if(val() != ""){
+      players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
+    // }else if (player2 != "") {
+    //   players.push(player2);
+    // }else if (player3 != "") {
+    //   players.push(player3);
+    // }else if (player4 != "") {
+    //   players.push(player4);
+    // }else if (player5 != "") {
+    //   players.push(player5);
+    // }else if (player6 != "") {
+    //   players.push(player6);
+    // }else if (player7 != "") {
+    //   players.push(player7);
+    // }else if (player8 != "") {
+    //   players.push(player8);
+    // }
+
+
+    //}
     // $("#checker").html("Here are my players:<br> "
     // + player1 + br + player2 + br + player3 +
     // br + player4 + br + player5 + br +
     // player6 + br + player7 + br + player8);
 
-    for(var i=0; i<8; i++){
+    // for(var i=0; i<8; i++){
 
 
-    $("#checker").html(players[i]);
-    }
+    $("#checker").html(players[0] +sp+ players[1] +sp+ players[2]);
+
 
 
 
@@ -131,23 +151,23 @@ $(document).ready(function(){
   $("#startBtn").click(function(event){
     event.preventDefault();
     $("#startBtn").hide("slow");
-    var x="Display active player name here " + activePlayers;
+    var x="Display active player name here " + players.length;
     $("#checker").html(x);
 
-    var activePlayers = 0;
-    var i;
-    for (i = 1; i < 8; i++){
-    if (players[i] != ""){
-        activePlayers += 1;
-
-      }
-    }
+    // var activePlayers = 0;
+    // var i;
+    // for (i = 1; i < 8; i++){
+    // if (player[i] != ""){
+    //     activePlayers += 1;
+    //
+    //   }
+    //}
 
 
 
     //DISPLAY PLAYER NAMES FIRST
     $("#ITEM").show();
-    var rnd = Math.floor(Math.random() * 3);
+    var rnd = Math.floor(Math.random() * 10);
     $("#ITEM").text(JSON.Food[rnd]); // USE RAND
     $("#loadJson").show();
     // var myJSON = JSON.stringify(FOOD);//plain string not needed.
