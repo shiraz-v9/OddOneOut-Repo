@@ -1,21 +1,21 @@
 //ALL CANVAS CODE HERE
 $(document).ready(function(){
   var sp = " ";
-  var player1
-  var player2
-  var player3
-  var player4
-  var player5
-  var player6
-  var player7
-  var player8 
+  var player1 = "";
+  var player2 = "";
+  var player3 = "";
+  var player4 = "";
+  var player5 = "";
+  var player6 = "";
+  var player7 = "";
+  var player8 = "";
 
   var players = [];
-  var activePlayers = players.length;
+
   // var player9 = "";
   // var player10 = "";
   var br = "<br>"; //use this for spacing
-  var GameStart = null;
+  //var GameStart = null;
 
   var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
 
@@ -107,10 +107,10 @@ $(document).ready(function(){
     player8 = $("#pl8").val();
 
     //LOOP
-<<<<<<< HEAD
-    // for(var i=1; i<8; i++){
-    //if(val() != ""){
-      players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
+    //for(var i=1; i<8; i++){
+    // if(player1 != ""){
+    //   players.push(player1);
+       players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
     // }else if (player2 != "") {
     //   players.push(player2);
     // }else if (player3 != "") {
@@ -129,39 +129,20 @@ $(document).ready(function(){
 
 
     //}
-=======
-    //players.push("Kiwi", "Lemon", "Pineapple");
+
     
-    //Pushing players without loop for now
-    players.push(player1);
-    players.push(player2);
-    players.push(player3);
-    players.push(player4);
-    players.push(player5);
-    players.push(player6);
-    players.push(player7);
-    players.push(player8);
-    
-    
->>>>>>> 9f22406cf0a65c5b6f4082901bfad3155ed99291
-    // $("#checker").html("Here are my players:<br> "
-    // + player1 + br + player2 + br + player3 +
-    // br + player4 + br + player5 + br +
-    // player6 + br + player7 + br + player8);
+    var len = players.length, i;
 
-<<<<<<< HEAD
-    // for(var i=0; i<8; i++){
+    for(i = 0; i < len; i++ )
+    players[i] && players.push(players[i]);  // copy non-empty values to the end of the array
+
+    players.splice(0 , len);  // cut the array and leave only the non-empty values
 
 
-    $("#checker").html(players[0] +sp+ players[1] +sp+ players[2]);
 
-=======
-      for(var i=0; i<8; i++){
-
-
-      $("#checker").html(players[i]);
-      }
->>>>>>> 9f22406cf0a65c5b6f4082901bfad3155ed99291
+    //Display my players name on screen
+    //$("#checker").html(players[0] +br+ players[1] +br+ players[2] +br+ players[3] +br+ players[4] +br+ players[5] +br+ players[6] +br+ players[7]);
+    $("#checker").html(players);
 
 
 
@@ -221,16 +202,16 @@ $(document).ready(function(){
                    $('#json').html( greggs + sp + tea+ sp + coffee);
                 });
              });
-  
-  
-  
-  
 
-  $("#votingForm").submit(function(event){
-   
-    
-     $("#votingForm").hide("slow");
-  }
+
+
+
+
+  // $("#votingForm").submit(function(event){
+  //
+  //
+  //    $("#votingForm").hide("slow");
+  //  });
 
 
 
