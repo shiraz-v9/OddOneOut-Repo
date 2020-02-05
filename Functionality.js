@@ -107,6 +107,7 @@ $(document).ready(function(){
     player8 = $("#pl8").val();
 
     //LOOP
+<<<<<<< HEAD
     // for(var i=1; i<8; i++){
     //if(val() != ""){
       players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
@@ -128,16 +129,39 @@ $(document).ready(function(){
 
 
     //}
+=======
+    //players.push("Kiwi", "Lemon", "Pineapple");
+    
+    //Pushing players without loop for now
+    players.push(player1);
+    players.push(player2);
+    players.push(player3);
+    players.push(player4);
+    players.push(player5);
+    players.push(player6);
+    players.push(player7);
+    players.push(player8);
+    
+    
+>>>>>>> 9f22406cf0a65c5b6f4082901bfad3155ed99291
     // $("#checker").html("Here are my players:<br> "
     // + player1 + br + player2 + br + player3 +
     // br + player4 + br + player5 + br +
     // player6 + br + player7 + br + player8);
 
+<<<<<<< HEAD
     // for(var i=0; i<8; i++){
 
 
     $("#checker").html(players[0] +sp+ players[1] +sp+ players[2]);
 
+=======
+      for(var i=0; i<8; i++){
+
+
+      $("#checker").html(players[i]);
+      }
+>>>>>>> 9f22406cf0a65c5b6f4082901bfad3155ed99291
 
 
 
@@ -197,7 +221,16 @@ $(document).ready(function(){
                    $('#json').html( greggs + sp + tea+ sp + coffee);
                 });
              });
+  
+  
+  
+  
 
+  $("#votingForm").submit(function(event){
+   
+    
+     $("#votingForm").hide("slow");
+  }
 
 
 
