@@ -196,8 +196,9 @@ $(document).ready(function(){
  
 //      for (i = 0; i < players.length; i++) {
   
-//          <input type = "button">player[i]</input>
+//          <input type = "button" id ="button">player[i]</input>
   
+//                 $("p").prepend("<b>Prepended text</b>. ");
 //      }
  
 //    });
