@@ -192,11 +192,15 @@ $(document).ready(function(){
   //             });
 
 
-  // $("#votingForm").submit(function(event){
-  //
-  //
-  //    $("#votingForm").hide("slow");
-  //  });
+//   $("#votingForm").submit(function(event){
+ 
+//      for (i = 0; i < players.length; i++) {
+  
+//          <input type = "button">player[i]</input>
+  
+//      }
+ 
+//    });
 
 
 });
