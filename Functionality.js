@@ -209,19 +209,19 @@ $(document).ready(function(){
    });
 
 
-<<<<<<< HEAD
-=======
+
+
 //   $("#votingForm").submit(function(event){
- 
+
 //      for (i = 0; i < players.length; i++) {
-  
+
 //          <input type = "button" id ="button">player[i]</input>
-  
+
 //                 $("p").prepend("<b>Prepended text</b>. ");
 //      }
- 
+
 //    });
->>>>>>> 274b2edc042e7b69ec8e8fe7c19a674ebd261904
+
 
  });//start btn
 
