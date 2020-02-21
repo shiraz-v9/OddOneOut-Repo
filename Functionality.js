@@ -13,6 +13,8 @@ $(document).ready(function(){
 
   var players = [];
   var word ="";
+
+  var toggler = 0; //for player names
   // var player9 = "";
   // var player10 = "";
 
@@ -133,8 +135,8 @@ $(document).ready(function(){
   $("#startBtn").click(function(event){
     event.preventDefault();
     $("#startBtn").hide("slow");
-    var x="Display active player name here " + players.length;
-    $("#checker").html(x);
+    var y="Active Players: " + players.length;
+    $("#checker").html(y);
 
     //DISPLAY PLAYER NAMES FIRST
     //$("#ITEM").show();
@@ -155,48 +157,59 @@ $(document).ready(function(){
     $("#Start").hide();
    var OddManOut = players[Math.floor(Math.random() * players.length)];
 
-   $("#veryOdd").text("ODD MAN is " + OddManOut + " Word is  " + JSON.Food[word]).css("background-color", "red");
+   //TESTER
+
+   $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
+
+   if (OddManOut == players[toggler]) {
+     $('#Question_Word').text("You're out of the loop. Try to get the word from your opponent answers");
+     $("#ITEM").text("");
+
+     }
+     else{
+       $('#Question_Word').text("Here is the Word:");
+     }
 
 
-   $('#PlayerSelection').text("Pass the device to " + players[0]);
 
-   $('#Confirmation').text("I confirm to be " + players[0]);
-   $("#Next").show();
+  //SHOW THE WORD ROUND
+  //try with switch case
+   $('#PlayerSelection').text("Pass the device to " + players[toggler]);
 
+   $('#Confirmation').show(100);
+   $('#Confirmation').text("I confirm to be " + players[toggler]);
+   //$("#Next").text("click & pass to " + players[1]);
+
+  //}
+
+   $("#Confirmation").click(function(){
+
+     $('#PlayerSelection').hide();
+     $('#Confirmation').hide();
+     $('#Question_Word').show();
+     $("#ITEM").show("slow");
+     $("#Next").show().text("click & pass to " + players[toggler + 1])
+
+
+   });//confirmation
+
+   //Player 2
    $("#Next").click(function(){
-     $(".passandconfirm").hide();
+     $("#Next").hide();
+     $('#Question_Word').hide();
+     $("#ITEM").hide();
 
+     toggler += 1;
 
+     $('#PlayerSelection').text("Pass the device to " + players[toggler]);
+     $('#Confirmation').show(100);
+     $('#Confirmation').text("I confirm to be " + players[toggler]);
+     //$("#Next").text("click & pass to " + players[toggler + 1]);
 
-     if (players[0] != OddManOut){
-       $("#Question_Word").text("Here is the Word:");
-       $("#ITEM").show();
-     }
-     else if (players[0] == OddManOut) {
-       $('#PlayerSelection').text("You're out of the loop. Try to get the word from your opponent answers");
-     }
    });
- //}
-
-
- });
 
 
 
-
-
-  // $("#loadJson").click(function(event){
-  //                $.getJSON('foodQuestions.json', function() {
-  //                   $('#json').html( greggs + sp + tea+ sp + coffee);
-  //                });
-  //             });
-
-
-  // $("#votingForm").submit(function(event){
-  //
-  //
-  //    $("#votingForm").hide("slow");
-  //  });
-
+ });//start btn
 
 });
