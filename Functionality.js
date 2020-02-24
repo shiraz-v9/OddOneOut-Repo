@@ -161,14 +161,7 @@ $(document).ready(function(){
 
    $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
 
-   if (OddManOut == players[toggler]) {
-     $('#Question_Word').text("You're out of the loop. Try to get the word from your opponent answers");
-     $("#ITEM").text("");
 
-     }
-     else{
-       $('#Question_Word').text("Here is the Word:");
-     }
 
 
 
@@ -186,8 +179,27 @@ $(document).ready(function(){
 
      $('#PlayerSelection').hide();
      $('#Confirmation').hide();
-     $('#Question_Word').show();
-     $("#ITEM").show("slow");
+
+     //remove it if doesn't work
+
+     if (players[toggler] == OddManOut) {
+       $('#Question_Word').text("You're out of the loop. Try to get the word from your opponent answers");
+       $('#Question_Word').show();
+       $("#ITEM").hide();
+       //$("#ITEM").show("slow");
+      }
+
+       else {
+         $('#Question_Word').text("Here is the Word:");
+         $('#Question_Word').show();
+         $("#ITEM").show("slow");
+       }
+
+
+
+
+
+
      $("#Next").show().text("click & pass to " + players[toggler + 1])
 
 
