@@ -1,6 +1,7 @@
 //ALL CANVAS CODE HERE
 $(document).ready(function(){
-
+  var sp = " ";
+  var br = "<br>"; //use this for spacing
   var player1 = "";
   var player2 = "";
   var player3 = "";
@@ -9,32 +10,61 @@ $(document).ready(function(){
   var player6 = "";
   var player7 = "";
   var player8 = "";
-  var player9 = "";
-  var player10 = "";
-  var br = "<br>"; //use this for spacing
-  var GameStart = null;
-  var open = false;
 
-  var obj = jQuery.parseJSON('{ "name":"greggs", "name":"tea", "name":"coffee"}');
+  var players = [];
+  var word ="";
+
+  var toggler = 0; //for player names
+  // var player9 = "";
+  // var player10 = "";
+
+  //var GameStart = null;
+
+  var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
+
+  // {"Food":[
+  //
+  // {"one" : "Would you eat this food cold?"},
+  // {"two":"What meal would you have this food on?"},
+  // {"three":"Would you eat this if it sat out on the counter for a week?"},
+  // {"four":"Would you eat this if it sat out on the counter for a week?"},
+  // {"five":"Would you eat this if it sat out on the counter for a week?"},
+  // {"six":"Would you eat this if it sat out on the counter for a week?"},
+  // {"seven":"Would you eat this if it sat out on the counter for a week?"},
+  // {"eight":"Would you eat this if it sat out on the counter for a week?"},
+  // {"nine":"Would you eat this if it sat out on the counter for a week?"}
+  // ]
+  // }
+  //
+  // "greggs":[
+  //   {},
+  //   {"Would you give this food to your dog?"},
+  //   {"What meal would you have this food on?"},
+  //   {"Would you eat this if it sat out on the counter for a week?"},
+  //   {"Could you make it through the week only eating this?"},
+  //   {"Say what you like about this item?"},
+  //   {"How much would you pay for this food?"},
+  //   {"Where would you buy this from?"},
+  //   {"What would you have this with?"},
+  //   {"Say what you dislike about this item?"}
+  // ]
 
 
-  // var FOOD = {list: [
-  //     {name: "greggs"},
-  //     {name: "tea"},
-  //     {name: "coffee"},
-  //     {name: "biscuits"},
-  //     {name: "Fish&Chips"},
-  //     {name: "Pasty"},
-  //     {name: "Meat Pie"},
-  //     {name: "Bagel"},
-  //     {name: "Sausage Roll"},
-  //     {name: "English Breakfast"}]};
-
+  // var LOCATIONS = {list: [
+  // {name: "London"},
+  // {name: "Manchester"},
+  // {name: "Big Ben"},
+  // {name: "London Eye"},
+  // {name: "York"},
+  // {name: "Stonehenge"},
+  // {name: "Tower of London"},
+  // {name: "Chester Zoo"},
+  // {name: "Blackpool"}]};
 
 
   $("#playerForm").hide(); // u can use a class to hide all context!
   $("#welcomeMsg").hide();
-  $(".hidden").hide()
+  $(".hidden").hide();
 
   // hide & show the navbar in mobile viewport only
   // $("#icon").click(function(){
@@ -43,87 +73,168 @@ $(document).ready(function(){
   // });
 
   $("#playbtn").click(function(){
-    $("#p1").hide(1000);
-    $("#p2").hide(1500);
-    $("#p3").hide(2000);
+    $("#p1").hide();
+    $("#p2").hide();
+    $("#p3").hide();
     $("#playbtn").hide();
     $("#playerForm").show("slow");
-    $("section").css("background-color", "grey").show("slow");
+    // $("section").css("background-color", "grey").show("slow");
 
-});
+  });
 
-// $('#submitBtn').click(function() {
-//     // var players = $('#playerForm').serializeArray();
-//     // for(i in players){
-//     //     console.log(players[i]);
-//         $("#checker").text($("#playerForm").serialize());
-//     //}
-//     return false;
-//     $(GameStart == true);
-// });
+
 
   $("#playerForm").submit(function(event){
     event.preventDefault(); // will prevent from refreshing the page and lose JS functions.
     player1 = $("#pl1").val();
     player2 = $("#pl2").val();
-    player3 = $("#pl3").val();//use loop for less code and more players
+    player3 = $("#pl3").val();
     player4 = $("#pl4").val();
     player5 = $("#pl5").val();
     player6 = $("#pl6").val();
     player7 = $("#pl7").val();
     player8 = $("#pl8").val();
-    $("#checker").html("Here are my players:<br> "
-    + player1 + br + player2 + br + player3 +
-    br + player4 + br + player5 + br +
-    player6 + br + player7 + br + player8);
+
+
+    players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
+
+    //REMOVE EMPTY VALUES FROM players
+    var len = players.length, i;
+
+    for(i = 0; i < len; i++ )
+    players[i] && players.push(players[i]);  // copy non-empty values to the end of the array
+
+    players.splice(0 , len);  // cut the array and leave only the non-empty values
+
+    //Display my players name on screen
+    $("#checker").html(players.join(br));
+
     $("#playerForm").hide("slow");
+
     $("#startBtn").show("slow");
+
+  });
+
+  var $toggle = -1;
+  $('#add').click(function(){
+     $toggle += 1;
+      if($toggle == 0){
+          $("#pl4").show();
+
+       }else if ($toggle == 1){$("#pl5").show();
+       }else if ($toggle == 2){$("#pl6").show();
+       }else if ($toggle == 3){$("#pl7").show();
+       }else if ($toggle == 4){$("#pl8").show();
+       // }else if ($toggle == 5){$("#pl9").show();
+       // }else if ($toggle == 6){$("#pl10").show();
+       }
 
   });
 
 
   $("#startBtn").click(function(event){
     event.preventDefault();
-    var x="Conutndown Here";
-    // setInterval(function() {
-    // x--;}
-    $("#checker").html(x);
     $("#startBtn").hide("slow");
-    //var obj = jQuery.parseJSON( '{ "name": "John" }' );
-    //$("#ITEM").html( FOOD.list[3]).show();
+    var y="Active Players: " + players.length;
+    $("#checker").html(y);
 
     //DISPLAY PLAYER NAMES FIRST
-    $("#ITEM").show();
-    //var x = ;
-    $("#ITEM").text(obj.name);
+    //$("#ITEM").show();
+    word = Math.floor(Math.random() * 10);
+    $("#ITEM").text(JSON.Food[word]); // USE RAND
+    $("#veryOdd").show();
+    $("#Start").show();
     // var myJSON = JSON.stringify(FOOD);//plain string not needed.
     // $("#ITEM").text(myJSON);
  });
 
 
 
- var $toggle = -1;
- $('#add').click(function(){
-    $toggle += 1;
-     if($toggle == 0){
-         $("#pl4").show();
 
-      }else if ($toggle == 1){$("#pl5").show();
-      }else if ($toggle == 2){$("#pl6").show();
-      }else if ($toggle == 3){$("#pl7").show();
-      }else if ($toggle == 4){$("#pl8").show();
-      // }else if ($toggle == 5){$("#pl9").show();
-      // }else if ($toggle == 6){$("#pl10").show();
+
+ //CONDITION TO GET 1 PLAYER OUT OF THE LOOP
+ $("#Start").click(function(event){
+    $("#Start").hide();
+   var OddManOut = players[Math.floor(Math.random() * players.length)];
+
+   //TESTER
+
+   $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
+
+
+
+
+
+  //SHOW THE WORD ROUND
+  //try with switch case
+   $('#PlayerSelection').text("Pass the device to " + players[toggler]);
+
+   $('#Confirmation').show(100);
+   $('#Confirmation').text("I confirm to be " + players[toggler]);
+   //$("#Next").text("click & pass to " + players[1]);
+
+  //}
+
+   $("#Confirmation").click(function(){
+
+     $('#PlayerSelection').hide();
+     $('#Confirmation').hide();
+
+     //remove it if doesn't work
+
+     if (players[toggler] == OddManOut) {
+       $('#Question_Word').text("You're out of the loop. Try to get the word from your opponent answers");
+       $('#Question_Word').show();
+       $("#ITEM").hide();
+       //$("#ITEM").show("slow");
       }
 
- });
+       else {
+         $('#Question_Word').text("Here is the Word:");
+         $('#Question_Word').show();
+         $("#ITEM").show("slow");
+       }
 
 
 
 
 
 
+     $("#Next").show().text("click & pass to " + players[toggler + 1])
 
 
+   });//confirmation
+
+   //Player 2
+   $("#Next").click(function(){
+     $("#Next").hide();
+     $('#Question_Word').hide();
+     $("#ITEM").hide();
+
+     toggler += 1;
+
+     $('#PlayerSelection').text("Pass the device to " + players[toggler]);
+     $('#Confirmation').show(100);
+     $('#Confirmation').text("I confirm to be " + players[toggler]);
+     //$("#Next").text("click & pass to " + players[toggler + 1]);
+
+   });
+
+
+
+
+//   $("#votingForm").submit(function(event){
+
+//      for (i = 0; i < players.length; i++) {
+
+//          <input type = "button" id ="button">player[i]</input>
+
+//                 $("p").prepend("<b>Prepended text</b>. ");
+//      }
+
+//    });
+
+
+ });//start btn
 
 });

@@ -15,7 +15,7 @@
     <h1 style="font-size:40px;">Odd Man Out</h1>
     <!-- <img id="icon" src="media/navbar.png"> -->
 
-    <div class="navbar" >
+    <div id="navbar" >
       <a class="active" href="#home">Play</a>
       <a href="#news">Contributors</a>
       <a href="#contact">Contact us</a>
@@ -24,7 +24,7 @@
 
 
     <section id="game-container" class="size">
-
+    <!-- <img id="pattern" src="media/pattern1.jpg"> -->
     <p id="p1">A group of 3+ people, and 1 mole: a group tries to find out who is lying and doesn't belong in here</p>
     <p id="p2">Use the item given and answer questions of the opponents without giving it away</p>
     <p id="p3">The mole will not have the item and will try to get that from your answer</p>
@@ -50,9 +50,23 @@
 
     <p id="checker"></p>
     <p><input type="submit" value="start game" id="startBtn" class="hidden"></p>
-    <p id="ITEM" class="hidden">TEST</p>
-    <!-- <canvas id="Canvas" class="size">
-    </canvas> -->
+
+    <p><button id='Start' class="hidden">Ready</button></p>
+    <p id='veryOdd'></p>
+    <p id='PlayerSelection' class="passandconfirm"></p>
+    <p><button id='Confirmation' class="hidden"></button></p>
+    <p id='Question_Word' class="hidden"></p>
+    <p id="ITEM" class="hidden"></p>
+    <p><button id='Next' class="hidden">Next</button></p>
+
+
+    <!-- <form  id="votingForm" action="">
+      <h2 id="votingHeader">Player Voting:</h3>
+      <p></p>
+    </form> -->
+
+
+
     </section>
 
 
