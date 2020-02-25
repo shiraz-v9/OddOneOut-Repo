@@ -63,6 +63,7 @@ $(document).ready(function(){
 
 
   $("#playerForm").hide(); // u can use a class to hide all context!
+  $("#votingForm").hide();
   $("#welcomeMsg").hide();
   $(".hidden").hide();
 
@@ -97,7 +98,6 @@ $(document).ready(function(){
 
 
     players.push(player1 , player2 , player3 , player4, player5, player6, player7, player8);
-
     //REMOVE EMPTY VALUES FROM players
     var len = players.length, i;
 
@@ -223,18 +223,29 @@ $(document).ready(function(){
 
 
 
-//   $("#votingForm").submit(function(event){
-
-//      for (i = 0; i < players.length; i++) {
-
-//          <input type = "button" id ="button">player[i]</input>
-
-//                 $("p").prepend("<b>Prepended text</b>. ");
-//      }
-
-//    });
-
-
  });//start btn
+
+
+ $("#votebtn").click(function(){
+   $("#votebtn").hide();
+   $("#votingForm").show("slow");
+
+ });
+
+    $("#votingForm").submit(function(event){
+
+
+       for (i = 0; i < players.length; i++) {
+         if(player[i].value != "")
+         {
+            document.getElementById('vt'+ i).innerHTML = player[i].value;
+         }
+         else {
+             document.getElementById('vt'+ i).hidden = true;
+         }
+      }
+
+     });
+
 
 });
