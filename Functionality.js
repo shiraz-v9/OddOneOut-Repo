@@ -17,7 +17,8 @@ $(document).ready(function(){
   var points; //to be used for the voting form
 
   var toggler = 0; //for player names
-
+  var round = 1;
+  var roundtoggler = -1;
   // var player9 = "";
   // var player10 = "";
 
@@ -25,39 +26,7 @@ $(document).ready(function(){
 
   var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
 
-  // var DATA = jQuery.parseJSON('{"Questions":[
-  //         {
-  //             "1":"Would you eat this food cold?"
-  //         },
-  //         {
-  //             "2":"What meal would you have this food on?"
-  //         },
-  //         {
-  //             "3":"Would you eat this if it sat out on the counter for a week?"
-  //         },
-  //         {
-  //             "4":"Could you make it through the week only eating this?"
-  //         },
-  //         {
-  //             "5":"Say what you like about this item?"
-  //         },
-  //         {
-  //             "6":"How much would you pay for this food?"
-  //         },
-  //         {
-  //             "7":"Where would you buy this from?"
-  //         },
-  //         {
-  //             "8":"What would you have this with?"
-  //         },
-  //         {
-  //             "9":"Say what you dislike about this item?"
-  //         },
-  //         {
-  //             "10":"Would you give this food to your dog?"
-  //         }
-  //     ]
-  // }');
+  var DATA = jQuery.parseJSON('{"Questions":["Would you eat this food cold?","What meal would you have this food on?","Would you eat this if it sat out on the counter for a week?","Could you make it through the week only eating this?","Say what you like about this item?","How much would you pay for this food?","Where would you buy this from?","What would you have this with?","Say what you dislike about this item?","Would you give this food to your dog?"]}');
 
 
 
@@ -243,16 +212,29 @@ $(document).ready(function(){
      //$("#Next").text("click & pass to " + players[toggler + 1]);
 
    });
+
    //all players know the word. Questions needs to be asked
    $("#QuestionRound").click(function(){
+     $("#QuestionRound").hide();
+
+
+     roundtoggler+=1;
+     round+=1;
      $('#ItemCompanion').hide("slow");
      $("#ITEM").hide("slow");
-
-
+     $("#QuestionRound").hide();
+     $('#PlayerSelection').show().text("Hey, " + players[roundtoggler]);
+     $('#ItemCompanion').show("slow").text("Answer this out loud " + DATA.Questions[round]);
+     $("#Answer").show().text("click and pass to " + players[roundtoggler + 1]);
 
 
    });
 
+   $("#Answer").click(function(){
+     $("#QuestionRound").show().text("I confirm I am" + players[roundtoggler + 1]);
+     $("#Answer").hide();
+
+   });
 
 
 
