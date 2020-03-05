@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Odd Man Out</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -8,22 +9,23 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Frijole&display=swap" rel="stylesheet">
     <script type="text/javascript" src="Functionality.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
 
     <h1 style="font-size:40px;">Odd Man Out</h1>
     <!-- <img id="icon" src="media/navbar.png"> -->
 
-    <div id="navbar" >
-      <a class="active" href="#home">Play</a>
-      <a href="#news">Contributors</a>
-      <a href="#contact">Contact us</a>
+    <div id="navbar">
+        <a class="active" href="#home">Play</a>
+        <a href="#news">Contributors</a>
+        <a href="#contact">Contact us</a>
 
     </div>
 
 
     <section id="game-container" class="size">
+
     <!-- <img id="pattern" src="media/pattern1.jpg"> -->
     <p id="p1">A group of 3+ people, and 1 mole: a group tries to find out who is lying and doesn't belong in here</p>
     <p id="p2">Use the item given and answer questions of the opponents without giving it away</p>
@@ -63,23 +65,83 @@
     <p><button id='Answer' class="hidden">Next</button></p>
 
     <!-- <form  id="votingForm" action="">
+
+        <!-- <img id="pattern" src="media/pattern1.jpg"> -->
+        <p id="p1">A group of 3+ people, and 1 mole: a group tries to find out who is lying and doesn't belong in here</p>
+        <p id="p2">Use the item given and answer questions of the opponents without giving it away</p>
+        <p id="p3">The mole will not have the item and will try to get that from your answer</p>
+
+
+        <p><button id="playbtn">Start a new Game</button></p>
+
+        <form id="playerForm" action="">
+            <h3>Enter your name here</h3>
+            <p><input id="pl1" type="text" placeholder="Player 1"></p>
+            <p><input id="pl2" type="text" placeholder="Player 2"></p>
+            <p><input id="pl3" type="text" placeholder="Player 3"></p>
+            <p><input id="pl4" type="text" class="hidden" placeholder="Player 4"></p>
+            <p><input id="pl5" type="text" class="hidden" placeholder="Player 5"></p>
+            <p><input id="pl6" type="text" class="hidden" placeholder="Player 6"></p>
+            <p><input id="pl7" type="text" class="hidden" placeholder="Player 7"></p>
+            <p><input id="pl8" type="text" class="hidden" placeholder="Player 8"></p>
+            <!-- <p><input id="pl9" type="text" class="hidden" placeholder="Player 9"></p> -->
+            <!-- <p><input id="pl10" type="text" class="hidden" placeholder="Player 10"></p> -->
+            <img id="add" src="media/addBtn.png">
+            <p><input type="submit" value="submit" id="submitBtn"></p>
+        </form>
+
+        <p id="checker"></p>
+        <p><input type="submit" value="start game" id="startBtn" class="hidden"></p>
+
+        <p><button id='Start' class="hidden">Ready</button></p>
+        <p id='veryOdd'></p>
+        <p id='PlayerSelection' class="passandconfirm"></p>
+        <p><button id='Confirmation' class="hidden"></button></p>
+        <p id='ItemCompanion' class="hidden"></p>
+        <p id="ITEM" class="hidden"></p>
+        <p><button id='Next' class="hidden">Next</button></p>
+
+        <p><button id="QuestionRound" class="hidden">Question Round</button></p>
+        <p id=""></p>
+        <!-- <form  id="votingForm" action="">
+
       <h2 id="votingHeader">Player Voting:</h3>
       <p></p>
     </form> -->
 
 
 
-    <form  id="votingForm" action="">
-      <h2 id="votingHeader">Player Voting:</h2>
-          <p><button id = vt1></button></p>
-          <p><button id = vt2></button></p>
-          <p><button id = vt3></button></p>
-          <p><button id = vt4></button></p>
-          <p><button id = vt5></button></p>
-          <p><button id = vt6></button></p>
-          <p><button id = vt7></button></p>
-          <p><button id = vt8></button></p>
-    </form>
+        <form id="votingForm" action="">
+
+            <button id="VotingNextPlayer"></button>
+
+            <h2 id="votingHeader">Player Voting:</h2>
+            <p><button id="vt1"></button></p>
+            <p><button id="vt2"></button></p>
+            <p><button id="vt3"></button></p>
+            <p><button id="vt4"></button></p>
+            <p><button id="vt5"></button></p>
+            <p><button id="vt6"></button></p>
+            <p><button id="vt7"></button></p>
+            <p><button id="vt8"></button></p>
+        </form>
+
+        <form id="wordGuessForm" action="">
+
+            <h2 id="wordGuessHeader">Word Guess:</h2>
+
+            <p><button id="wg1"></button></p>
+            <p><button id="wg2"></button></p>
+            <p><button id="wg3"></button></p>
+            <p><button id="wg4"></button></p>
+            <p><button id="wg5"></button></p>
+            <p><button id="wg6"></button></p>
+            <p><button id="wg7"></button></p>
+            <p><button id="wg8"></button></p>
+            <p><button id="wg9"></button></p>
+            <p><button id="wg10"></button></p>
+        </form>
+
 
 
 
@@ -88,6 +150,6 @@
 
 
 
-  </body>
+</body>
 
 </html>
