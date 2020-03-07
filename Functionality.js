@@ -20,6 +20,7 @@ $(document).ready(function(){
   var toggler = 0; //for player names
   var round = 1;
   var roundtoggler = -1;
+  var votetoggler = 0;
   // var player9 = "";
   // var player10 = "";
 
@@ -28,102 +29,6 @@ $(document).ready(function(){
   var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
 
   var DATA = jQuery.parseJSON('{"Questions":["Would you eat this food cold?","What meal would you have this food on?","Would you eat this if it sat out on the counter for a week?","Could you make it through the week only eating this?","Say what you like about this item?","How much would you pay for this food?","Where would you buy this from?","What would you have this with?","Say what you dislike about this item?","Would you give this food to your dog?"]}');
-
-
-$(document).ready(function() {
-    var sp = " ";
-    var br = "<br>"; //use this for spacing
-    var player1 = "";
-    var player2 = "";
-    var player3 = "";
-    var player4 = "";
-    var player5 = "";
-    var player6 = "";
-    var player7 = "";
-    var player8 = "";
-
-    var players = [];
-    var word = "";
-
-    var points; //to be used for the voting form
-
-    var toggler = 0; //for player names
-    var votetoggler = 0;
-
-    // var player9 = "";
-    // var player10 = "";
-
-    //var GameStart = null;
-
-    var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
-
-    // var DATA = jQuery.parseJSON('{"Questions":[
-    //         {
-    //             "1":"Would you eat this food cold?"
-    //         },
-    //         {
-    //             "2":"What meal would you have this food on?"
-    //         },
-    //         {
-    //             "3":"Would you eat this if it sat out on the counter for a week?"
-    //         },
-    //         {
-    //             "4":"Could you make it through the week only eating this?"
-    //         },
-    //         {
-    //             "5":"Say what you like about this item?"
-    //         },
-    //         {
-    //             "6":"How much would you pay for this food?"
-    //         },
-    //         {
-    //             "7":"Where would you buy this from?"
-    //         },
-    //         {
-    //             "8":"What would you have this with?"
-    //         },
-    //         {
-    //             "9":"Say what you dislike about this item?"
-    //         },
-    //         {
-    //             "10":"Would you give this food to your dog?"
-    //         }
-    //     ]
-    // });
-
-
-
-
-
-
-
-
-  // "greggs":[
-  //   {},
-  //   {"Would you give this food to your dog?"},
-  //   {"What meal would you have this food on?"},
-  //   {"Would you eat this if it sat out on the counter for a week?"},
-  //   {"Could you make it through the week only eating this?"},
-  //   {"Say what you like about this item?"},
-  //   {"How much would you pay for this food?"},
-  //   {"Where would you buy this from?"},
-  //   {"What would you have this with?"},
-  //   {"Say what you dislike about this item?"}
-  // ]
-
-
-    // "greggs":[
-    //   {},
-    //   {"Would you give this food to your dog?"},
-    //   {"What meal would you have this food on?"},
-    //   {"Would you eat this if it sat out on the counter for a week?"},
-    //   {"Could you make it through the week only eating this?"},
-    //   {"Say what you like about this item?"},
-    //   {"How much would you pay for this food?"},
-    //   {"Where would you buy this from?"},
-    //   {"What would you have this with?"},
-    //   {"Say what you dislike about this item?"}
-    // ]
 
 
     // var LOCATIONS = {list: [
@@ -203,6 +108,7 @@ $(document).ready(function() {
             $("#pl7").show();
         } else if ($toggle == 4) {
             $("#pl8").show();
+            $("#add").hide();
             // }else if ($toggle == 5){$("#pl9").show();
             // }else if ($toggle == 6){$("#pl10").show();
         }
@@ -225,45 +131,33 @@ $(document).ready(function() {
     });
 
 
-
-
-
-    //CONDITION TO GET 1 PLAYER OUT OF THE LOOP
     $("#Start").click(function(event) {
         $("#Start").hide();
-        var OddManOut = players[Math.floor(Math.random() * players.length)];
+        var OddManOut = players[Math.floor(Math.random() * players.length)];    //GET 1 PLAYER OUT OF THE LOOP
 
         //TESTER
-
         $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
 
-
-
-
-
         //SHOW THE WORD ROUND
-
         $('#PlayerSelection').text("Pass the device to " + players[toggler]);
 
-        $('#Confirmation').show(100);
-        $('#Confirmation').text("I confirm to be " + players[toggler]);
-        //$("#Next").text("click & pass to " + players[1]);
+        $('#cf1').show(100);
+        $('#cf1').text("I confirm to be " + players[toggler]);
 
-        //}
 
-        $("#Confirmation").click(function() {
+        $("#cf1").click(function() {
 
             $('#PlayerSelection').hide();
-            $('#Confirmation').hide();
+            $('#cf1').hide();
 
-            //remove it if doesn't work
+
 
             if (players[toggler] == OddManOut) {
                 $('#ItemCompanion').text("You're out of the loop. Try to get the word from your opponent answers");
                 $('#ItemCompanion').show();
                 $("#ITEM").hide();
-                //$("#ITEM").show("slow");
-            } else {
+            }
+            else {
                 $('#ItemCompanion').text("Here is the Word:");
                 $('#ItemCompanion').show();
                 $("#ITEM").show("slow");
@@ -271,104 +165,129 @@ $(document).ready(function() {
 
             //QUESTION ROUND
             if (toggler + 1 == players.length) { // fixed the loop count
-                //$("#Next").text("Question Round");
                 $("#Next").hide();
                 $("#QuestionRound").show();
-
-
-            } else {
+            }
+            else {
                 $("#Next").show().text("click & pass to " + players[toggler + 1])
             }
         }); //confirmation
 
-        //Player 2 - Next Button
+        //Next player
         $("#Next").click(function() {
             toggler += 1;
             $("#Next").hide();
             $('#ItemCompanion').hide();
             $("#ITEM").hide();
             $('#PlayerSelection').text("Pass the device to " + players[toggler]);
-            $('#Confirmation').show(100);
-            $('#Confirmation').text("I confirm to be " + players[toggler]);
-            //$("#Next").text("click & pass to " + players[toggler + 1]);
+            $('#cf1').show(100);
+            $('#cf1').text("I confirm to be " + players[toggler]);
+
 
         });
+
         //all players know the word. Questions needs to be asked
         $("#QuestionRound").click(function() {
-            $('#ItemCompanion').hide("slow");
-            $("#ITEM").hide("slow");
+          $("#cf1").hide();
+          $("#QuestionRound").hide();
+          $("#ITEM").hide("slow");
+          //$('#Title').show().text("Question Round"); //MOVE THIS TO ACTIVE PLAYERS
+          $('#ItemCompanion').show().text("Pass the device to " + players[0]);
+          $('#cf2').show().text("I confirm to be " + players[0]);
 
-
-
-   });
+        });
 
    //all players know the word. Questions needs to be asked
-   $("#QuestionRound").click(function(){
-     $("#QuestionRound").hide();
-
+   $("#cf2").click(function(){
 
      roundtoggler+=1;
      round+=1;
-     $('#ItemCompanion').hide("slow");
+     $("#cf2").hide();
+     $('#ItemCompanion').hide();
      $("#ITEM").hide("slow");
      $("#QuestionRound").hide();
-     $('#PlayerSelection').show().text("Hey, " + players[roundtoggler]);
-     $('#ItemCompanion').show("slow").text("Answer this out loud " + DATA.Questions[round]);
-     $("#Answer").show().text("click and pass to " + players[roundtoggler + 1]);
+     $('#PlayerSelection').show().text("Hey " + players[roundtoggler] + ", Answer this out loud:");
+     $('#ItemCompanion').show("slow").text(DATA.Questions[round]);
 
+
+     //All players answered proceed to voting
+     if (roundtoggler +1 == players.length) {//Last person answers and then voting sess.
+       $(".questions").show();
+       $("#Answer").hide();
+       $("#Vote").show();
+     }
+     else{
+       $("#Answer").show().text("Answer and pass to " + players[roundtoggler + 1]);
+     }
 
    });
 
 
 
-        });
+ });//start
 
 
    $("#Answer").click(function(){
-     $("#QuestionRound").show().text("I confirm I am" + players[roundtoggler + 1]);
+
+     $(".questions").hide();
+     $("#cf2").show().text("I confirm I am " + players[roundtoggler + 1]);
      $("#Answer").hide();
+     });
+
+
+     $("#Vote").click(function(){//Insert voting code
+       $(".questions").hide();
+       $("#Title").show().text("Hello World");
+     });
 
         //functions for the voting section
 
-        $("VotingRound").click(function() {
-
-            var Numplayers = players.length;
-            $('#ItemCompanion').text('Voting for player:' + players[votetoggler]);
-
-
-      //   $("#votingForm").submit(function(event){
+        // $("VotingRound").click(function() {
+        //
+        //     var Numplayers = players.length;
+        //     $('#ItemCompanion').text('Voting for player:' + players[votetoggler]);
 
 
-            for (i = 0; i < players[i].length; i++) {
-                if (player[i].value != "") {
-                    //document.getElementById('vt' + i).innerHTML = players[i].value;
-                    $('#ItemCompanion').text(players[i]);
+        //   $("#votingForm").submit(function(event){
 
 
-                } else {
-                    //document.getElementById('vt' + i).hidden = true;
-                    $('#ItemCompanion').text("else");
-                }
-            }
-        });
+        //     for (i = 0; i < players[i].length; i++) {
+        //         if (player[i].value != "") {
+        //             //document.getElementById('vt' + i).innerHTML = players[i].value;
+        //             $('#ItemCompanion').text(players[i]);
+        //
+        //
+        //         } else {
+        //             //document.getElementById('vt' + i).hidden = true;
+        //             $('#ItemCompanion').text("else");
+        //         }
+        //     }
+        // });
+
+
+
+
+
+        //CALLUM CODE
+
 
         //functions for the word guessing
 
-        $("WordGuess").click(function() {
-
-            for (i = 0; i < 4; i++) {
-                //Generates random value to be used to pick from the word pool
-                rnd = (Math.random() * 10);
-                JSON.Food[rnd];
-
-                //document.getElementById('wg' + i).innerHTML = players[i].value;
-
-
-
-            }
-
-
-        });
+        // $("WordGuess").click(function() {
+        //
+        //     for (i = 0; i < 4; i++) {
+        //         //Generates random value to be used to pick from the word pool
+        //         rnd = (Math.random() * 10);
+        //         JSON.Food[rnd];
+        //
+        //         //document.getElementById('wg' + i).innerHTML = players[i].value;
+        //
+        //
+        //
+        //     }
+        //
+        //
+        // });
 
 
 
@@ -395,4 +314,4 @@ $(document).ready(function() {
     // });
 
 
-});
+//});
