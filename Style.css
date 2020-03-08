@@ -1,47 +1,58 @@
 <style id="stylesheet">
 
-/* * {
-  box-sizing: border-box;
-} */
-
-
-/* .navbar {
-  overflow: hidden;
-  background-color: #f1f1f1;
-} */
-
-
-#navbar{
-    /* width: 50%; */
-    margin: auto;
-    display: block;
-    text-align: center;
-    display: inline-block;
-    list-style-type: none;
-
-
+div {
+position:relative;
+}
+#nav {
+position:absolute;
+left:50%;top:90px;
+margin-left:-280px; /* negative margin equal to half the width */
+width:750px;
+list-style:none;
+}
+#nav li {
+float:left;
+}
+#nav a {
+font-size: 20px;
+color: black;
+display:block;
+text-align:center;
+width:150px; /* fixed width */
+border-bottom: 4px solid transparent;
+text-decoration:none;
 }
 
-#navbar a {
+/* #navbar a{
+    /* width: 50%; */
+    /* display:block; */
+    /* text-align:center; */
+/* margin-left: auto;
+margin-right: auto; */
+
+
+/* } */
+
+/* #navbar a {
 
   /* float: left; */
   /* display: block; */
-  color: black;
+  /* color: black; */
   /* text-align: center; */
-  padding: 3px 10px;
+  /* padding: 3px 10px;
   text-decoration: none;
   font-size: 20px;
-  border-bottom: 4px solid transparent;
-  /* background-color: black; */
+  border-bottom: 4px solid transparent; */
+  /* background-color: black;
 
 
-}
+} */
 
-#navbar a:hover {
+#nav a:hover {
   border-bottom: 3px solid red;
 }
 
-#navbar a.active {
+#nav a.active {
   border-bottom: 3px solid red;
 }
 
@@ -72,7 +83,7 @@ section {
   /* border: 2px solid black; */
   /* outline: red solid 10px; */
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   border: 10px ridge #1C9AFF;
   border-radius: 12px 12px 12px 12px;
   -webkit-box-shadow: 5px 5px 13px 5px rgba(0,0,0,0.7);
@@ -112,17 +123,17 @@ section {
 /* Viewport sizing for Smartphones */
 @media only screen and (min-width: 300px) {
   /* MOBILES */
-  .navbar{ width: 90%; margin-top: 10px;}
+  /* .navbar{ width: 90%; margin-top: 10px;} */
   section {margin-top: 100px;}
   .size {width: 330px;}
   .size {height: 700px;}
-  #pattern {display: hidden;}
+  /* #pattern {display: hidden;} */
 }
 
 @media only screen and (min-width: 600px) {
   /* Desktop */
   /* #icon{visibility:hidden;;} */
-  .navbar{ margin-left: auto; margin-right: auto;}
+  /* .navbar{ margin-left: auto; margin-right: auto;} */
   .size {width: 800px;}
   .size {height: 500px;}
 }

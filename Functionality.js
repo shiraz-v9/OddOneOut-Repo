@@ -238,6 +238,26 @@ $(document).ready(function(){
      $("#Vote").click(function(){//Insert voting code
        $(".questions").hide();
        $("#Title").show().text("Hello World");
+
+
+           var Numplayers = players.length;
+           $('#ItemCompanion').text('Voting for player:' + players[votetoggler]);
+
+
+         $("#votingForm").submit(function(event){
+
+
+           for (i = 0; i < players[i].length; i++) {
+               if (player[i].value != "") {
+                   //document.getElementById('vt' + i).innerHTML = players[i].value;
+                   $('#ItemCompanion').text(players[i]);
+
+
+               } else {
+                   //document.getElementById('vt' + i).hidden = true;
+                   $('#ItemCompanion').text("else");
+               }
+           }
      });
 
         //functions for the voting section
@@ -314,4 +334,4 @@ $(document).ready(function(){
     // });
 
 
-//});
+});
