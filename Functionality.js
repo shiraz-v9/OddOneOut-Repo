@@ -235,17 +235,46 @@ $(document).ready(function(){
      });
 
 
-     $("#Vote").click(function(){//Insert voting code
+     $("#Vote").click(function(){       //Insert voting code
+
        $(".questions").hide();
-       $("#Title").show().text("Hello World");
+       $("#votingForm").show();
+
+       $('#ItemCompanion').show("slow").text('Voting for player:' + players[votetoggler]);
+       $("#Vote").hide();
 
 
-           var Numplayers = players.length;
-           $('#ItemCompanion').text('Voting for player:' + players[votetoggler]);
+       for (i = 0; i < players[i].length; i++) {
+        if ((players[i] != "") && (players[i] != players[votetoggler])) {
+
+            $("#vt"+i).show().text(players[i]);
+             
+
+            $("#vt"+i).click(function(){
+
+                if(players[i] == OddManOut) 
+                {
+                    votetoggler += 1;
+                    $("#Vote").show();
+                }
+                else
+                {
+                    votetoggler += 1;
+                    $("#Vote").show();
+                }
+
+            });
+        }
+
+
+    }
+
+     });
+
 
 
          $("#votingForm").submit(function(event){
-
+            
 
            for (i = 0; i < players[i].length; i++) {
                if (player[i].value != "") {
@@ -310,8 +339,7 @@ $(document).ready(function(){
         // });
 
 
-
-    }); //start btn
+ //start btn
 
 
     // $("#votebtn").click(function() {
