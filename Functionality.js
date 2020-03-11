@@ -12,7 +12,10 @@ $(document).ready(function(){
   var player7 = "";
   var player8 = "";
 
+  var p1vote, p2vote, p3vote, p4vote, p5vote, p6vote, p7vote, p8vote = "";
+
   var players = [];
+  var Vote = [];
   var word ="";
 
   var points; //to be used for the voting form
@@ -228,37 +231,97 @@ $(document).ready(function(){
 
 
    $("#Answer").click(function(){
-
      $(".questions").hide();
      $("#cf2").show().text("I confirm I am " + players[roundtoggler + 1]);
      $("#Answer").hide();
      });
 
 
-     $("#Vote").click(function(){//Insert voting code
-       $(".questions").hide();
-       $("#Title").show().text("Hello World");
+    $("#Vote").click(function(){//Insert voting code
+      $(".questions").hide();
+      $("#Title").show().text("Voting Session: " + players[votetoggler] + " Pick the odd man!");
+      $("#Vote").hide();
 
 
-           var Numplayers = players.length;
-           $('#ItemCompanion').text('Voting for player:' + players[votetoggler]);
+    $("#Votingform").show();
+    var select = document.getElementById("Selection"),
+                   arr = players;
 
-
-         $("#votingForm").submit(function(event){
-
-
-           for (i = 0; i < players[i].length; i++) {
-               if (player[i].value != "") {
-                   //document.getElementById('vt' + i).innerHTML = players[i].value;
-                   $('#ItemCompanion').text(players[i]);
-
-
-               } else {
-                   //document.getElementById('vt' + i).hidden = true;
-                   $('#ItemCompanion').text("else");
-               }
+           for(var i = 0; i < arr.length; i++)
+           {
+               var option = document.createElement("OPTION"),
+                   txt = document.createTextNode(arr[i]);
+               option.appendChild(txt);
+               option.setAttribute("value",arr[i]);
+               select.insertBefore(option,select.lastChild);
            }
-     });
+     }); //VOTE btn
+
+   $("#Votingform").submit(function(event) {
+     event.preventDefault();
+     //$("#Votingform").hide();
+     votetoggler +=1;
+     // p1vote = $("#OpValue").val();
+     // p2vote = $("#pl2").val();
+     // p3vote = $("#pl3").val();
+     // p4vote = $("#pl4").val();
+     // p5vote = $("#pl5").val();
+     // p6vote = $("#pl6").val();
+     // p7vote = $("#pl7").val();
+     // p8vote = $("#pl8").val();
+
+     Vote.push(OpValue);
+    // var obj = jQuery.parseJSON('Vote');
+     // var len = Vote.length,
+     //     i;
+     //
+     // for (i = 0; i < len; i++)
+     //     Vote[i] && Vote.push(Vote[i]); // copy non-empty values to the end of the array
+     //
+     // Vote.splice(0, len); // cut the array and leave only the non-empty values
+
+     //conditional statement here
+     if(votetoggler == players.length){
+       $("#Title").show("slow").text("ADD POINTS NOW!!! " +  Vote.length + Vote[0] + Vote[1] + Vote[2]);
+     }
+     else{
+       $("#Title").show("slow");
+     }
+
+
+
+   }); //Vote submission
+
+
+
+
+
+
+
+      //Voting ROUND
+      //var Numplayers = players.length;
+      //$('#VoteCompanion').show().text('Voting for player:' + players[votetoggler]);
+      // if (toggler + 1 == players.length) { // fixed the loop count
+      //     $("#Next").hide();
+      //     $("#QuestionRound").show();
+      // }
+      // else {
+      //     $("#Next").show().text("click & pass to " + players[toggler + 1])
+      // }
+    //$("#votingForm").submit(function(event){
+
+
+       // for (i = 0; i < players[i].length; i++) {
+       //     if (player[i].value != "") {
+       //         //document.getElementById('vt' + i).innerHTML = players[i].value;
+       //         $('#ItemCompanion').text(players[i]);
+       //     }
+       //     else {
+       //         //document.getElementById('vt' + i).hidden = true;
+       //         $('#ItemCompanion').text("else");
+       //     }
+       //   }
+     //});
 
         //functions for the voting section
 
@@ -311,7 +374,7 @@ $(document).ready(function(){
 
 
 
-    }); //start btn
+
 
 
     // $("#votebtn").click(function() {
@@ -334,4 +397,4 @@ $(document).ready(function(){
     // });
 
 
-});
+}); //SCRIPT END

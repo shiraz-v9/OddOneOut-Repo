@@ -23,30 +23,7 @@ border-bottom: 4px solid transparent;
 text-decoration:none;
 }
 
-/* #navbar a{
-    /* width: 50%; */
-    /* display:block; */
-    /* text-align:center; */
-/* margin-left: auto;
-margin-right: auto; */
 
-
-/* } */
-
-/* #navbar a {
-
-  /* float: left; */
-  /* display: block; */
-  /* color: black; */
-  /* text-align: center; */
-  /* padding: 3px 10px;
-  text-decoration: none;
-  font-size: 20px;
-  border-bottom: 4px solid transparent; */
-  /* background-color: black;
-
-
-} */
 
 #nav a:hover {
   border-bottom: 3px solid red;
@@ -57,7 +34,7 @@ margin-right: auto; */
 }
 
 
-h1, h3{
+h1, h3, select{
 
 
   text-align: center;
