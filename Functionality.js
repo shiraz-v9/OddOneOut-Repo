@@ -16,6 +16,7 @@ $(document).ready(function(){
 
   var players = [];
   var Vote = [];
+  var Score = [0,0,0,0,0,0,0,0];
   var word ="";
 
   var points; //to be used for the voting form
@@ -270,7 +271,17 @@ $(document).ready(function(){
      // p7vote = $("#pl7").val();
      // p8vote = $("#pl8").val();
 
-     Vote.push(OpValue);
+     Vote.push($('#Selection').val());
+
+
+    //////////////////////////////////////// Scoring players if they guess odd man out -- Will need global var for OddManOut
+    //  if(Vote[votetoggler] == OddManOut)
+    //  {
+    //     Score[votetoggler].value = Score[votetoggler] + 40;
+    //  }
+    ///////////////////////////////////////
+
+
     // var obj = jQuery.parseJSON('Vote');
      // var len = Vote.length,
      //     i;
@@ -281,6 +292,9 @@ $(document).ready(function(){
      // Vote.splice(0, len); // cut the array and leave only the non-empty values
 
      //conditional statement here
+
+
+
      if(votetoggler == players.length){
        $("#Title").show("slow").text("ADD POINTS NOW!!! " +  Vote.length + Vote[0] + Vote[1] + Vote[2]);
      }
