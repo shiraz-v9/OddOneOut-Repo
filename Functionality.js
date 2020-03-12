@@ -2,7 +2,8 @@
 
 $(document).ready(function(){
   var sp = " ";
-  var br = "<br>"; //use this for spacing
+  var br = "<br />"; //use this for spacing
+  var cs = ", ";
   var player1 = "";
   var player2 = "";
   var player3 = "";
@@ -18,6 +19,7 @@ $(document).ready(function(){
   var Vote = [];
   var Score = [0,0,0,0,0,0,0,0];
   var word ="";
+  var OddManOut = "";
 
   var points; //to be used for the voting form
 
@@ -137,7 +139,7 @@ $(document).ready(function(){
 
     $("#Start").click(function(event) {
         $("#Start").hide();
-        var OddManOut = players[Math.floor(Math.random() * players.length)];    //GET 1 PLAYER OUT OF THE LOOP
+        OddManOut = players[Math.floor(Math.random() * players.length)];    //GET 1 PLAYER OUT OF THE LOOP
 
         //TESTER
         $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
@@ -260,17 +262,7 @@ $(document).ready(function(){
 
    $("#Votingform").submit(function(event) {
      event.preventDefault();
-     //$("#Votingform").hide();
      votetoggler +=1;
-     // p1vote = $("#OpValue").val();
-     // p2vote = $("#pl2").val();
-     // p3vote = $("#pl3").val();
-     // p4vote = $("#pl4").val();
-     // p5vote = $("#pl5").val();
-     // p6vote = $("#pl6").val();
-     // p7vote = $("#pl7").val();
-     // p8vote = $("#pl8").val();
-
      Vote.push($('#Selection').val());
 
 
@@ -296,20 +288,65 @@ $(document).ready(function(){
 
 
      if(votetoggler == players.length){
-       $("#Title").show("slow").text("Players voted for: " +  Vote.length + Vote[0] + Vote[1] + Vote[2]);
-        //$("#Votingform").hide();
+       for (var i = 0; i < Vote.length; i++) {
+         //var votes = Vote[i] + cs;
+         $("#Title").show("slow").text("Players have voted for: "  + Vote[i] + Vote[0]+cs+Vote[1]+cs+Vote[2]);
+         $("#Votingform").hide();
+         $("#cf3").show("slow").text("Odd Man Reveal");
+        }
      }
      else{
        $("#Title").show("slow");
      }
 
-
-
    }); //Vote submission
 
+   $("#cf3").click(function(){
+     var count = 0;
+     count+=1;
+     $("#Reveal").show().text("And the odd man is...");
+     $("#Revealcompanion").show("slow").text(OddManOut);
+     if (count == 1){
+       $("#cf3").hide();
+       $("#cf4").show().text("Word Guess");
+     }
+   }); //confirmation 3
 
+   $("#cf4").click(function(){
+     $(".reveal").hide();
+     $("#cf4").hide();
+     $("#Title").show("slow").text(OddManOut + cs+ "Guess the secret word to get points!")
+     $("#Guessform").show();
 
+     var select = document.getElementById("Guess"),
+                    arr = JSON.Food;
 
+            for(var i = 0; i < arr.length; i++)
+            {
+                var option = document.createElement("OPTION"),
+                    txt = document.createTextNode(arr[i]);
+                option.appendChild(txt);
+                option.setAttribute("value",arr[i]);
+                select.insertBefore(option,select.lastChild);
+            }
+   }); //confirmation 4
+
+   $("#Guessform").submit(function(event) {
+     event.preventDefault();
+     if($('#Guess').val() == JSON.Food[word]){
+       $("#Title").show("slow").text("Congrats you have guessed the word!");
+       $("#Points").show("slow").text("Points +40");
+
+     }
+     else{
+       $("#Title").show("slow").text("Sorry, better luck next time!" + cs + "word was: " + JSON.Food[word]);
+     }
+     $("#cf5").show().text("Go to LeaderBoard");
+   }); //guess submission
+
+   $("#cf5").click(function(){
+
+   }); //confirmation 5
 
 
 
