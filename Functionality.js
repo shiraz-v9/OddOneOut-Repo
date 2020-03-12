@@ -282,7 +282,8 @@ $(document).ready(function(){
 
      //conditional statement here
      if(votetoggler == players.length){
-       $("#Title").show("slow").text("ADD POINTS NOW!!! " +  Vote.length + Vote[0] + Vote[1] + Vote[2]);
+       $("#Title").show("slow").text("Players voted for: " +  Vote.length + Vote[0] + Vote[1] + Vote[2]);
+        //$("#Votingform").hide();
      }
      else{
        $("#Title").show("slow");
