@@ -26,7 +26,7 @@ $(document).ready(function(){
   var toggler = 0; //for player names
   var round = 1;
   var roundtoggler = -1;
-  var votetoggler = 0;
+  var votetoggler = -1;
   // var player9 = "";
   // var player10 = "";
 
@@ -265,6 +265,13 @@ $(document).ready(function(){
      votetoggler +=1;
      Vote.push($('#Selection').val());
 
+     if ($('#Selection').val() == OddManOut){
+       Score[votetoggler] = "20"; //set player score if guessed
+     }
+     else if($('#Selection').val() != OddManOut){
+       Score[OddManOut] = "10";
+     }
+
 
     //////////////////////////////////////// Scoring players if they guess odd man out -- Will need global var for OddManOut
     //  if(Vote[votetoggler] == OddManOut)
@@ -292,7 +299,7 @@ $(document).ready(function(){
          //var votes = Vote[i] + cs;
          $("#Title").show("slow").text("Players have voted for: "  + Vote[i] + Vote[0]+cs+Vote[1]+cs+Vote[2]);
          $("#Votingform").hide();
-         $("#cf3").show("slow").text("Odd Man Reveal");
+         $("#cf3").show().text("Odd Man Reveal");
         }
      }
      else{
@@ -304,6 +311,7 @@ $(document).ready(function(){
    $("#cf3").click(function(){
      var count = 0;
      count+=1;
+     $("#Title").hide();
      $("#Reveal").show().text("And the odd man is...");
      $("#Revealcompanion").show("slow").text(OddManOut);
      if (count == 1){
@@ -333,10 +341,11 @@ $(document).ready(function(){
 
    $("#Guessform").submit(function(event) {
      event.preventDefault();
+     $(".guess").hide();
      if($('#Guess').val() == JSON.Food[word]){
        $("#Title").show("slow").text("Congrats you have guessed the word!");
-       $("#Points").show("slow").text("Points +40");
-
+       $("#Points").show("slow").text("Points +20");
+       Score[OddManOut] += "20"; //set odd man's score
      }
      else{
        $("#Title").show("slow").text("Sorry, better luck next time!" + cs + "word was: " + JSON.Food[word]);
@@ -345,7 +354,34 @@ $(document).ready(function(){
    }); //guess submission
 
    $("#cf5").click(function(){
+     $(".punti").hide();
+     $("#Title").hide();
+     //$(".scoring").show().text(Score);
+     $("#sc1").show().text(players[0] +cs+"you scored: " + Score[0]);
+     $("#sc2").show().text(players[1] +cs+"you scored: " + Score[1]);
+     $("#sc3").show().text(players[2] +cs+"you scored: " + Score[2]);
+     $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+     $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
+     $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
+     $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
 
+     $(".punti").show().text(Score);
+
+     // if(players.length == 3){
+     //   $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+     // }
+     // if(players.length == 4){
+     //   $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
+     // }
+     // if(players.length == 5){
+     //   $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
+     // }
+     // if(players.length == 6){
+     //   $("#sc7").show().text(players[6] +cs+"you scored: " + Score[6]);
+     // }
+     // if(players.length == 7){
+     //   $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
+     // }
    }); //confirmation 5
 
 
