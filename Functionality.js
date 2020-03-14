@@ -20,6 +20,10 @@ $(document).ready(function(){
   var Score = [0,0,0,0,0,0,0,0];
   var word ="";
   var OddManOut = "";
+  var RandomGuy = "";
+
+  var first = 0;
+  var second = 0;
 
   var points; //to be used for the voting form
 
@@ -139,7 +143,11 @@ $(document).ready(function(){
 
     $("#Start").click(function(event) {
         $("#Start").hide();
-        OddManOut = players[Math.floor(Math.random() * players.length)];    //GET 1 PLAYER OUT OF THE LOOP
+        RandomGuy = Math.floor(Math.random() * players.length);
+
+        OddManOut = players[RandomGuy];    //GET 1 PLAYER OUT OF THE LOOP
+
+
 
         //TESTER
         $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
@@ -242,7 +250,7 @@ $(document).ready(function(){
 
     $("#Vote").click(function(){//Insert voting code
       $(".questions").hide();
-      $("#Title").show().text("Voting Session: " + players[votetoggler] + " Pick the odd man!");
+      $("#Title").show().text("Voting Session: " + players + " Pick the odd man!");
       $("#Vote").hide();
 
 
@@ -268,8 +276,11 @@ $(document).ready(function(){
      if ($('#Selection').val() == OddManOut){
        Score[votetoggler] = "20"; //set player score if guessed
      }
-     else if($('#Selection').val() != OddManOut){
-       Score[OddManOut] = "10";
+     else {
+       //Score[votetoggler] = "0";
+       //Score[6] = "10";
+       first = 10;
+       //Score[RandomGuy] = "10";
      }
 
 
@@ -294,16 +305,21 @@ $(document).ready(function(){
 
 
 
-     if(votetoggler == players.length){
+     if(votetoggler+1 == players.length){
        for (var i = 0; i < Vote.length; i++) {
          //var votes = Vote[i] + cs;
-         $("#Title").show("slow").text("Players have voted for: "  + Vote[i] + Vote[0]+cs+Vote[1]+cs+Vote[2]);
+         $("#Title").show("slow").text("Players have voted for: "  + Vote);
          $("#Votingform").hide();
          $("#cf3").show().text("Odd Man Reveal");
         }
      }
+     // else if(votetoggler == players[RandomGuy]){
+     //   $("#Selection").hide();
+     //   $("#Title").show().text("You cannot vote. Click the button and proceed.");
+     // }
      else{
-       $("#Title").show("slow");
+       $("#Title").show("slow").text("Voting Session: " + players + " Pick the odd man!");
+       $("#Selection").show();
      }
 
    }); //Vote submission
@@ -344,8 +360,11 @@ $(document).ready(function(){
      $(".guess").hide();
      if($('#Guess').val() == JSON.Food[word]){
        $("#Title").show("slow").text("Congrats you have guessed the word!");
-       $("#Points").show("slow").text("Points +20");
-       Score[OddManOut] += "20"; //set odd man's score
+       $("#Points").show("slow").text("Points +30");
+       //Score[7] = "30"; //set odd man's score
+       second = 30;
+       var value = first + second;
+       Score[RandomGuy] = value; //incrementing values for odd guy
      }
      else{
        $("#Title").show("slow").text("Sorry, better luck next time!" + cs + "word was: " + JSON.Food[word]);
@@ -355,7 +374,7 @@ $(document).ready(function(){
 
    $("#cf5").click(function(){
      $(".punti").hide();
-     $("#Title").hide();
+     $("#Title").show().text(Vote +cs+ Score);
      //$(".scoring").show().text(Score);
      $("#sc1").show().text(players[0] +cs+"you scored: " + Score[0]);
      $("#sc2").show().text(players[1] +cs+"you scored: " + Score[1]);
@@ -363,9 +382,10 @@ $(document).ready(function(){
      $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
      $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
      $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
+     $("#sc7").show().text(players[6] +cs+"you scored: " + Score[6]);
      $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
 
-     $(".punti").show().text(Score);
+
 
      // if(players.length == 3){
      //   $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
