@@ -22,8 +22,8 @@ $(document).ready(function(){
   var OddManOut = "";
   var RandomGuy = "";
 
-  var first = 0;
-  var second = 0;
+  var misguess = 0; //renamed first to misguess and second to word guess
+  var wordguess = 0;
 
   var points; //to be used for the voting form
 
@@ -270,58 +270,65 @@ $(document).ready(function(){
 
    $("#Votingform").submit(function(event) {
      event.preventDefault();
-     votetoggler +=1;
-     Vote.push($('#Selection').val());
 
-     if ($('#Selection').val() == OddManOut){
-       Score[votetoggler] = "20"; //set player score if guessed
-     }
-     else {
-       //Score[votetoggler] = "0";
-       //Score[6] = "10";
-       first = 10;
-       //Score[RandomGuy] = "10";
-     }
+     if($('#Selection').val() != players[votetoggler + 1])
+     {
+        votetoggler +=1;
+        Vote.push($('#Selection').val());
 
-
-    //////////////////////////////////////// Scoring players if they guess odd man out -- Will need global var for OddManOut
-    //  if(Vote[votetoggler] == OddManOut)
-    //  {
-    //     Score[votetoggler].value = Score[votetoggler] + 40;
-    //  }
-    ///////////////////////////////////////
-
-
-    // var obj = jQuery.parseJSON('Vote');
-     // var len = Vote.length,
-     //     i;
-     //
-     // for (i = 0; i < len; i++)
-     //     Vote[i] && Vote.push(Vote[i]); // copy non-empty values to the end of the array
-     //
-     // Vote.splice(0, len); // cut the array and leave only the non-empty values
-
-     //conditional statement here
-
-
-
-     if(votetoggler+1 == players.length){
-       for (var i = 0; i < Vote.length; i++) {
-         //var votes = Vote[i] + cs;
-         $("#Title").show("slow").text("Players have voted for: "  + Vote);
-         $("#Votingform").hide();
-         $("#cf3").show().text("Odd Man Reveal");
+        if ($('#Selection').val() == OddManOut){
+          Score[votetoggler] = Score[votetoggler] + 20; //set player score if guessed
         }
-     }
-     // else if(votetoggler == players[RandomGuy]){
-     //   $("#Selection").hide();
-     //   $("#Title").show().text("You cannot vote. Click the button and proceed.");
-     // }
-     else{
-       $("#Title").show("slow").text("Voting Session: " + players + " Pick the odd man!");
-       $("#Selection").show();
-     }
+        else if(players[votetoggler] != OddManOut){
+          //Score[votetoggler] = "0";
+          //Score[6] = "10";
+          misguess = misguess + 10;
+          //Score[RandomGuy] = "10";
+        }
+      
 
+      //////////////////////////////////////// Scoring players if they guess odd man out -- Will need global var for OddManOut
+      //  if(Vote[votetoggler] == OddManOut)
+      //  {
+      //     Score[votetoggler] = Score[votetoggler] + 40;
+      //  }
+      ///////////////////////////////////////
+
+
+      // var obj = jQuery.parseJSON('Vote');
+      // var len = Vote.length,
+      //     i;
+      //
+      // for (i = 0; i < len; i++)
+      //     Vote[i] && Vote.push(Vote[i]); // copy non-empty values to the end of the array
+      //
+      // Vote.splice(0, len); // cut the array and leave only the non-empty values
+
+      //conditional statement here
+
+
+
+      if(votetoggler+1 == players.length){
+        for (var i = 0; i < Vote.length; i++) {
+          //var votes = Vote[i] + cs;
+          $("#Title").show("slow").text("Players have voted for: "  + Vote);
+          $("#Votingform").hide();
+          $("#cf3").show().text("Odd Man Reveal");
+          }
+      }
+      // else if(votetoggler == players[RandomGuy]){
+      //   $("#Selection").hide();
+      //   $("#Title").show().text("You cannot vote. Click the button and proceed.");
+      // }
+      else{
+        $("#Title").show("slow").text("Voting Session: " + players + " Pick the odd man!");
+        $("#Selection").show();
+      }
+    }
+    else
+    {
+      $("#Title").show().text("Please do not vote for your self!");
+    }
    }); //Vote submission
 
    $("#cf3").click(function(){
@@ -362,8 +369,8 @@ $(document).ready(function(){
        $("#Title").show("slow").text("Congrats you have guessed the word!");
        $("#Points").show("slow").text("Points +30");
        //Score[7] = "30"; //set odd man's score
-       second = 30;
-       var value = first + second;
+       wordguess = 30;
+       var value = misguess + wordguess;
        Score[RandomGuy] = value; //incrementing values for odd guy
      }
      else{
