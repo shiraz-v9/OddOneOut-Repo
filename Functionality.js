@@ -250,7 +250,7 @@ $(document).ready(function(){
 
     $("#Vote").click(function(){//Insert voting code
       $(".questions").hide();
-      $("#Title").show().text("Voting Session: " + players + " Pick the odd man!");
+      $("#Title").show().text("Voting Session: " + players[votetoggler + 1] + " Pick the odd man!");
       $("#Vote").hide();
 
 
@@ -321,7 +321,7 @@ $(document).ready(function(){
       //   $("#Title").show().text("You cannot vote. Click the button and proceed.");
       // }
       else{
-        $("#Title").show("slow").text("Voting Session: " + players + " Pick the odd man!");
+        $("#Title").show("slow").text("Voting Session: " + players[votetoggler + 1] + " Pick the odd man!");
         $("#Selection").show();
       }
     }
