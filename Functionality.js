@@ -21,6 +21,7 @@ $(document).ready(function(){
   var word ="";
   var OddManOut = "";
   var RandomGuy = "";
+  var TotPlayers = players.length;
 
   var misguess = 0; //renamed first to misguess and second to word guess
   var wordguess = 0;
@@ -285,7 +286,7 @@ $(document).ready(function(){
           misguess = misguess + 10;
           //Score[RandomGuy] = "10";
         }
-      
+
 
       //////////////////////////////////////// Scoring players if they guess odd man out -- Will need global var for OddManOut
       //  if(Vote[votetoggler] == OddManOut)
@@ -386,11 +387,46 @@ $(document).ready(function(){
      $("#sc1").show().text(players[0] +cs+"you scored: " + Score[0]);
      $("#sc2").show().text(players[1] +cs+"you scored: " + Score[1]);
      $("#sc3").show().text(players[2] +cs+"you scored: " + Score[2]);
-     $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
-     $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
-     $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
-     $("#sc7").show().text(players[6] +cs+"you scored: " + Score[6]);
-     $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
+
+     // $("#sc4").text(players[3] +cs+"you scored: " + Score[3]);
+     // $("#sc5").text(players[4] +cs+"you scored: " + Score[4]);
+     // $("#sc6").text(players[5] +cs+"you scored: " + Score[5]);
+     // $("#sc7").text(players[6] +cs+"you scored: " + Score[6]);
+     // $("#sc8").text(players[7] +cs+"you scored: " + Score[7]);
+
+
+     switch (players.length -1) {
+      case 3:
+        $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+        break;
+      case 4:
+        $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+        $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
+        break;
+      case 5:
+        $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+        $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
+        $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
+        break;
+      case 6:
+        $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+        $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
+        $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
+        $("#sc7").show().text(players[6] +cs+"you scored: " + Score[6]);
+        break;
+      case 7:
+        $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
+        $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
+        $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
+        $("#sc7").show().text(players[6] +cs+"you scored: " + Score[6]);
+        $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
+        break;
+        //default: $(".all").show();
+
+     }
+
+   }); //confirmation 5
+
 
 
 
@@ -409,7 +445,7 @@ $(document).ready(function(){
      // if(players.length == 7){
      //   $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
      // }
-   }); //confirmation 5
+
 
 
 
