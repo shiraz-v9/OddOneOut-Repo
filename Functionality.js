@@ -1,5 +1,3 @@
-//ALL CANVAS CODE HERE
-
 $(document).ready(function(){
   var sp = " ";
   var br = "<br />"; //use this for spacing
@@ -35,7 +33,7 @@ $(document).ready(function(){
   // var player9 = "";
   // var player10 = "";
 
-  //var GameStart = null;
+
 
   var JSON = jQuery.parseJSON('{"Food":["greggs", "tea", "coffee","biscuits","Fish&Chips","Pasty","Meat Pie","Bagel","Sausage Roll","English Breakfast" ]}');
 
@@ -136,13 +134,14 @@ $(document).ready(function(){
         //DISPLAY PLAYER NAMES FIRST
         word = Math.floor(Math.random() * 10);
         $("#ITEM").text(JSON.Food[word]); // USE RAND
-        $("#veryOdd").show();
+        //$("#veryOdd").show();
         $("#Start").show();
 
     });
 
 
     $("#Start").click(function(event) {
+      $("#checker").hide();
         $("#Start").hide();
         RandomGuy = Math.floor(Math.random() * players.length);
 
@@ -151,8 +150,8 @@ $(document).ready(function(){
 
 
         //TESTER
-        $("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
-
+        //$("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
+        $("#veryOdd").show().text("Word Round"); // Used as title
         //SHOW THE WORD ROUND
         $('#PlayerSelection').text("Pass the device to " + players[toggler]);
 
@@ -206,6 +205,7 @@ $(document).ready(function(){
           $("#cf1").hide();
           $("#QuestionRound").hide();
           $("#ITEM").hide("slow");
+          $("#veryOdd").show().text("Question Round");
           //$('#Title').show().text("Question Round"); //MOVE THIS TO ACTIVE PLAYERS
           $('#ItemCompanion').show().text("Pass the device to " + players[0]);
           $('#cf2').show().text("I confirm to be " + players[0]);
@@ -251,7 +251,9 @@ $(document).ready(function(){
 
     $("#Vote").click(function(){//Insert voting code
       $(".questions").hide();
-      $("#Title").show().text("Voting Session: " + players[votetoggler + 1] + " Pick the odd man!");
+
+      $("#veryOdd").text("Voting Round");
+      $("#Title").show().text(players[votetoggler + 1] + " Pick the odd man!");
       $("#Vote").hide();
 
 
@@ -288,41 +290,20 @@ $(document).ready(function(){
         }
 
 
-      //////////////////////////////////////// Scoring players if they guess odd man out -- Will need global var for OddManOut
-      //  if(Vote[votetoggler] == OddManOut)
-      //  {
-      //     Score[votetoggler] = Score[votetoggler] + 40;
-      //  }
-      ///////////////////////////////////////
-
-
-      // var obj = jQuery.parseJSON('Vote');
-      // var len = Vote.length,
-      //     i;
-      //
-      // for (i = 0; i < len; i++)
-      //     Vote[i] && Vote.push(Vote[i]); // copy non-empty values to the end of the array
-      //
-      // Vote.splice(0, len); // cut the array and leave only the non-empty values
-
-      //conditional statement here
-
-
 
       if(votetoggler+1 == players.length){
         for (var i = 0; i < Vote.length; i++) {
           //var votes = Vote[i] + cs;
+          $("#veryOdd").text("Results");
           $("#Title").show("slow").text("Players have voted for: "  + Vote);
           $("#Votingform").hide();
           $("#cf3").show().text("Odd Man Reveal");
           }
       }
-      // else if(votetoggler == players[RandomGuy]){
-      //   $("#Selection").hide();
-      //   $("#Title").show().text("You cannot vote. Click the button and proceed.");
-      // }
+
       else{
-        $("#Title").show("slow").text("Voting Session: " + players[votetoggler + 1] + " Pick the odd man!");
+        $("#veryOdd").text("Voting Round");
+        $("#Title").show("slow").text( players[votetoggler + 1] + " Pick the odd man!");
         $("#Selection").show();
       }
     }
@@ -336,6 +317,7 @@ $(document).ready(function(){
      var count = 0;
      count+=1;
      $("#Title").hide();
+     $("#veryOdd").hide();
      $("#Reveal").show().text("And the odd man is...");
      $("#Revealcompanion").show("slow").text(OddManOut);
      if (count == 1){
@@ -382,7 +364,7 @@ $(document).ready(function(){
 
    $("#cf5").click(function(){
      $(".punti").hide();
-     $("#Title").show().text(Vote +cs+ Score);
+     //$("#Title").show().text(Vote +cs+ Score);
      //$(".scoring").show().text(Score);
      $("#sc1").show().text(players[0] +cs+"you scored: " + Score[0]);
      $("#sc2").show().text(players[1] +cs+"you scored: " + Score[1]);
@@ -426,126 +408,6 @@ $(document).ready(function(){
      }
 
    }); //confirmation 5
-
-
-
-
-     // if(players.length == 3){
-     //   $("#sc4").show().text(players[3] +cs+"you scored: " + Score[3]);
-     // }
-     // if(players.length == 4){
-     //   $("#sc5").show().text(players[4] +cs+"you scored: " + Score[4]);
-     // }
-     // if(players.length == 5){
-     //   $("#sc6").show().text(players[5] +cs+"you scored: " + Score[5]);
-     // }
-     // if(players.length == 6){
-     //   $("#sc7").show().text(players[6] +cs+"you scored: " + Score[6]);
-     // }
-     // if(players.length == 7){
-     //   $("#sc8").show().text(players[7] +cs+"you scored: " + Score[7]);
-     // }
-
-
-
-
-      //Voting ROUND
-      //var Numplayers = players.length;
-      //$('#VoteCompanion').show().text('Voting for player:' + players[votetoggler]);
-      // if (toggler + 1 == players.length) { // fixed the loop count
-      //     $("#Next").hide();
-      //     $("#QuestionRound").show();
-      // }
-      // else {
-      //     $("#Next").show().text("click & pass to " + players[toggler + 1])
-      // }
-    //$("#votingForm").submit(function(event){
-
-
-       // for (i = 0; i < players[i].length; i++) {
-       //     if (player[i].value != "") {
-       //         //document.getElementById('vt' + i).innerHTML = players[i].value;
-       //         $('#ItemCompanion').text(players[i]);
-       //     }
-       //     else {
-       //         //document.getElementById('vt' + i).hidden = true;
-       //         $('#ItemCompanion').text("else");
-       //     }
-       //   }
-     //});
-
-        //functions for the voting section
-
-        // $("VotingRound").click(function() {
-        //
-        //     var Numplayers = players.length;
-        //     $('#ItemCompanion').text('Voting for player:' + players[votetoggler]);
-
-
-        //   $("#votingForm").submit(function(event){
-
-
-        //     for (i = 0; i < players[i].length; i++) {
-        //         if (player[i].value != "") {
-        //             //document.getElementById('vt' + i).innerHTML = players[i].value;
-        //             $('#ItemCompanion').text(players[i]);
-        //
-        //
-        //         } else {
-        //             //document.getElementById('vt' + i).hidden = true;
-        //             $('#ItemCompanion').text("else");
-        //         }
-        //     }
-        // });
-
-
-
-
-
-        //CALLUM CODE
-
-
-        //functions for the word guessing
-
-        // $("WordGuess").click(function() {
-        //
-        //     for (i = 0; i < 4; i++) {
-        //         //Generates random value to be used to pick from the word pool
-        //         rnd = (Math.random() * 10);
-        //         JSON.Food[rnd];
-        //
-        //         //document.getElementById('wg' + i).innerHTML = players[i].value;
-        //
-        //
-        //
-        //     }
-        //
-        //
-        // });
-
-
-
-
-
-
-    // $("#votebtn").click(function() {
-    //     $("#votebtn").hide();
-    //     $("#votingForm").show("slow");
-
-    // });
-
-    // $("#votingForm").submit(function(event) {
-
-
-    //     for (i = 0; i < players.length; i++) {
-    //         if (player[i].value != "") {
-    //             document.getElementById('vt' + i).innerHTML = player[i].value;
-    //         } else {
-    //             document.getElementById('vt' + i).hidden = true;
-    //         }
-    //     }
-
-    // });
 
 
 }); //SCRIPT END
