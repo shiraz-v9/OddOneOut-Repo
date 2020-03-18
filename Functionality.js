@@ -134,7 +134,7 @@ $(document).ready(function(){
         //DISPLAY PLAYER NAMES FIRST
         word = Math.floor(Math.random() * 10);
         $("#ITEM").text(JSON.Food[word]); // USE RAND
-        //$("#veryOdd").show();
+        //$("#Heading").show();
         $("#Start").show();
 
     });
@@ -150,8 +150,8 @@ $(document).ready(function(){
 
 
         //TESTER
-        //$("#veryOdd").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
-        $("#veryOdd").show().text("Word Round"); // Used as title
+        //$("#Heading").text("ODD MAN is: " + OddManOut + " Word is: " + JSON.Food[word]).css("background-color", "red");
+        $("#Heading").show().text("Word Round"); // Used as title
         //SHOW THE WORD ROUND
         $('#PlayerSelection').text("Pass the device to " + players[toggler]);
 
@@ -205,7 +205,7 @@ $(document).ready(function(){
           $("#cf1").hide();
           $("#QuestionRound").hide();
           $("#ITEM").hide("slow");
-          $("#veryOdd").show().text("Question Round");
+          $("#Heading").show().text("Question Round");
           //$('#Title').show().text("Question Round"); //MOVE THIS TO ACTIVE PLAYERS
           $('#ItemCompanion').show().text("Pass the device to " + players[0]);
           $('#cf2').show().text("I confirm to be " + players[0]);
@@ -252,8 +252,8 @@ $(document).ready(function(){
     $("#Vote").click(function(){//Insert voting code
       $(".questions").hide();
 
-      $("#veryOdd").text("Voting Round");
-      $("#Title").show().text(players[votetoggler + 1] + " Pick the odd man!");
+      $("#Heading").text("Voting Round");
+      $("#Title").show().text(players[votetoggler + 1] + cs+ "Pick the odd man");
       $("#Vote").hide();
 
 
@@ -294,7 +294,7 @@ $(document).ready(function(){
       if(votetoggler+1 == players.length){
         for (var i = 0; i < Vote.length; i++) {
           //var votes = Vote[i] + cs;
-          $("#veryOdd").text("Results");
+          $("#Heading").text("Results");
           $("#Title").show("slow").text("Players have voted for: "  + Vote);
           $("#Votingform").hide();
           $("#cf3").show().text("Odd Man Reveal");
@@ -302,7 +302,7 @@ $(document).ready(function(){
       }
 
       else{
-        $("#veryOdd").text("Voting Round");
+        $("#Heading").text("Voting Round");
         $("#Title").show("slow").text( players[votetoggler + 1] + " Pick the odd man!");
         $("#Selection").show();
       }
@@ -317,7 +317,7 @@ $(document).ready(function(){
      var count = 0;
      count+=1;
      $("#Title").hide();
-     $("#veryOdd").hide();
+     $("#Heading").hide();
      $("#Reveal").show().text("And the odd man is...");
      $("#Revealcompanion").show("slow").text(OddManOut);
      if (count == 1){
@@ -329,7 +329,7 @@ $(document).ready(function(){
    $("#cf4").click(function(){
      $(".reveal").hide();
      $("#cf4").hide();
-     $("#Title").show("slow").text(OddManOut + cs+ "Guess the secret word to get points!")
+     $("#Heading").show("slow").text(OddManOut + cs+ "Guess the secret word to get points!")
      $("#Guessform").show();
 
      var select = document.getElementById("Guess"),
@@ -349,7 +349,7 @@ $(document).ready(function(){
      event.preventDefault();
      $(".guess").hide();
      if($('#Guess').val() == JSON.Food[word]){
-       $("#Title").show("slow").text("Congrats you have guessed the word!");
+       $("#Heading").show("slow").text("Congrats you have guessed the word!");
        $("#Points").show("slow").text("Points +30");
        //Score[7] = "30"; //set odd man's score
        wordguess = 30;
@@ -357,14 +357,14 @@ $(document).ready(function(){
        Score[RandomGuy] = value; //incrementing values for odd guy
      }
      else{
-       $("#Title").show("slow").text("Sorry, better luck next time!" + cs + "word was: " + JSON.Food[word]);
+       $("#Heading").show("slow").text("Sorry, better luck next time!" + cs + "word was: " + JSON.Food[word]);
      }
      $("#cf5").show().text("Go to LeaderBoard");
    }); //guess submission
 
    $("#cf5").click(function(){
      $(".punti").hide();
-     //$("#Title").show().text(Vote +cs+ Score);
+     $("#Heading").show().text("Score Board")
      //$(".scoring").show().text(Score);
      $("#sc1").show().text(players[0] +cs+"you scored: " + Score[0]);
      $("#sc2").show().text(players[1] +cs+"you scored: " + Score[1]);
